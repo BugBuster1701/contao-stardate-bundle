@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace BugBuster\StardateBundle\ContentElement;
 
 use Contao\ContentElement;
-use Contao\StringUtil;
 
 class ContentStardate extends ContentElement
 {
@@ -40,18 +39,17 @@ class ContentStardate extends ContentElement
         $this->strTemplate = 'be_wildcard';
         $this->Template = new \BackendTemplate($this->strTemplate);
         $this->Template->title = $this->headline;
-        $this->Template->wildcard = '### ContentProduct ###';
+        $this->Template->wildcard = '### Content Stardate ###';
     }
 
     /**
-     * Erzeugt die Ausgebe für das Frontend.
+     * Erzeugt die Ausgabe für das Frontend, 
+     * falls keine Klartext Werte übergeben werden
      *
      * @return string
      */
     private function genFeOutput()
     {
-        if ('' !== $this->productproperties) {
-            $this->Template->arrProperties = StringUtil::deserialize($this->productproperties, true);
-        }
+        
     }
 }

@@ -30,11 +30,19 @@ class System
 
     public function isBackend()
     {
+        //composer install/update has no request, but the initializeSystem hook is called!
+        if (null == $this->requestStack->getCurrentRequest()) {
+            return false;
+        }
         return $this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest());
     }
 
     public function isFrontend()
     {
+        //composer install/update has no request, but the initializeSystem hook is called!
+        if (null == $this->requestStack->getCurrentRequest()) {
+            return false;
+        }
         return $this->scopeMatcher->isFrontendRequest($this->requestStack->getCurrentRequest());
     }
 

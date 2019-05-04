@@ -7,10 +7,19 @@ $strName = 'tl_content';
 /**
  * Fields
  */
-$GLOBALS['TL_LANG'][$strName]['productdescription'] = array('Beschreibung', 'Bitte geben Sie die Beschreibung ein.');
-$GLOBALS['TL_LANG'][$strName]['productproperties']  = array('Eigenschaften', 'Bitte geben Sie die Eigenschaften ein.');
-$GLOBALS['TL_LANG'][$strName]['productprice']       = array('Preis', 'Bitte geben Sie den Preis ein.');
+$GLOBALS['TL_LANG'][$strName]['calculate'] = array('Berechnung', 'Art der Berechnung auswählen');
 /**
  * Legends
  */
-$GLOBALS['TL_LANG'][$strName]['description_legend'] = 'Eigenschaften';
+$GLOBALS['TL_LANG'][$strName]['calculate_legend'] = 'Berechnungsarten';
+/**
+ * Options
+ */
+$GLOBALS['TL_LANG'][$strName]['default']          = 'Bitte auswählen';
+$GLOBALS['TL_LANG'][$strName]['trekguide_f1']     = 'Fictional Stardate nach TrekGuide.com (Today)';
+$GLOBALS['TL_LANG'][$strName]['trekguide_f2']     = 'Fictional Stardate nach TrekGuide.com (1946)';
+$GLOBALS['TL_LANG'][$strName]['trekconnection']   = 'Fictional Stardate nach TrekConnection.com';
+$GLOBALS['TL_LANG'][$strName]['trekguide_11']     = 'ST XI Variante nach TrekGuide.com';
+$GLOBALS['TL_LANG'][$strName]['startrek_tng2323'] = 'Star Trek TNG Stardate (2323)';
+$GLOBALS['TL_LANG'][$strName]['startrek_tng2322'] = 'Star Trek TNG Stardate (2322)';
+$GLOBALS['TL_LANG'][$strName]['startrek_tos2265'] = 'Star Trek TOS Stardate (2265)';
