@@ -30,7 +30,14 @@ class BugBusterStardateExtension extends Extension
             $container,
             new FileLocator(__DIR__.'/../Resources/config')
         );
+        // Es könnten auch alle Services in die selbe Datei
+        // Das wäre allerdings unübersichtlicher
 
+        // Listener reagieren auf events / hooks
+        $loader->load('listener.yml');
+
+        // Services können aufgerufen und für Dependency Injection
+        // verwendet werden
         $loader->load('services.yml');
     }
 }
