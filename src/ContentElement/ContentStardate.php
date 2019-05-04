@@ -43,13 +43,12 @@ class ContentStardate extends ContentElement
     }
 
     /**
-     * Erzeugt die Ausgabe für das Frontend, 
-     * falls keine Klartext Werte übergeben werden
+     * Erzeugt die Ausgabe für das Frontend,
+     * falls keine Klartext Werte übergeben werden.
      *
      * @return string
      */
     private function genFeOutput()
     {
-        
     }
 }

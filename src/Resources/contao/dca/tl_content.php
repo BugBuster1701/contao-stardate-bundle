@@ -8,7 +8,6 @@ $strName = 'tl_content';
 // Palettes
 $GLOBALS['TL_DCA'][$strName]['palettes']['content_stardate'] = '{type_legend},type;{calculate_legend},calculate;{invisible_legend:hide},invisible,start,stop;';
 
-
 $GLOBALS['TL_DCA'][$strName]['fields']['calculate'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG'][$strName]['calculate'],
