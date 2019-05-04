@@ -1,0 +1,63 @@
+{
+	"name":"bugbuster/contao-stardate-bundle",
+	"description":"Contao 4 bundle, calculate the Star Trek Stardates.",
+	"keywords":["contao","bundle", "star trek", "stardate"],
+	"type":"contao-bundle",
+	"homepage":"http://contao.ninja",
+	"license":"LGPL-3.0-or-later",
+	"authors":[
+		{
+			"name":"Glen Langer",
+			"homepage":"http://contao.ninja",
+			"role":"Developer"
+		}
+	],
+	"support":{
+		"issues":"https://github.com/BugBuster1701/contao-stardate-bundle/issues",
+		"irc":"irc://irc.freenode.org/contao.dev",
+		"source":"https://github.com/BugBuster1701/contao-stardate-bundle",
+		"wiki":"http://de.contaowiki.org/Stardate",
+		"forum":"https://community.contao.org/de/forumdisplay.php?119-Sonstige-Erweiterungen"
+	},
+	"require":{
+		"php": "^7.1",
+		"contao/core-bundle": ">=4.7,<4.9",
+		"contao/manager-plugin": "^2.6.2"
+	},
+	"require-dev": {
+		"friendsofphp/php-cs-fixer": "^2.14",
+		"php-http/guzzle6-adapter" : "*",
+		"phpunit/phpunit": "^7.0"
+	},
+	"conflict": {
+		"contao/manager-plugin": "<2.0 || >=3.0"
+	},
+	"autoload":{
+		"psr-4": {
+			"BugBuster\\StardateBundle\\": "src/"
+		},
+		"classmap": [
+			"src/Resources/contao/"
+		],
+		"exclude-from-classmap": [
+			"src/Resources/contao/config/",
+			"src/Resources/contao/dca/",
+			"src/Resources/contao/languages/",
+			"src/Resources/contao/templates/"
+		]
+	},
+	"extra":{
+		"contao":{
+			"transifex": {
+				"project": "contao-stardate-bundle",
+				"prefix": "master-",
+				"languages_cto": "src/Resources/contao/languages",
+				"languages_tx": ".tx"
+			}
+		},
+		"branch-alias": {
+			"dev-master": "1.1.x-dev"
+		},
+		"contao-manager-plugin": "BugBuster\\StardateBundle\\ContaoManager\\Plugin"
+	}
+}
