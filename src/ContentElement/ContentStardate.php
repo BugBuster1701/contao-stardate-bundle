@@ -24,9 +24,9 @@ class ContentStardate extends ContentElement
     {
         if (TL_MODE === 'BE') {
             $this->genBeOutput();
-        } else {
-            $this->genFeOutput();
+            return;
         }
+        $this->genFeOutput();
     }
 
     /**
