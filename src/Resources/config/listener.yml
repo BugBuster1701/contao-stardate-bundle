@@ -6,3 +6,11 @@ services:
         arguments:
             - "@request_stack"
             - "@contao.routing.scope_matcher"
+
+    bugbuster.stardatebundle.insert_tags:
+        class: BugBuster\StardateBundle\EventListener\InsertTagsListener
+        tags:
+            - { name: contao.hook, hook: replaceInsertTags, method: onReplaceInsertTags }
+        arguments:
+            - '@contao.framework'
+        public: true

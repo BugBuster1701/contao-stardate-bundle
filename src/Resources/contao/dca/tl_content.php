@@ -21,7 +21,7 @@ $GLOBALS['TL_DCA'][$strName]['fields']['calculate'] = array
                                         'trekguide_f1', 
                                         'trekguide_f2', 
                                         'trekconnection', 
-                                        'trekguide_11', 
+                                        'trekguide_x11', 
                                         'startrek_tng2323', 
                                         'startrek_tng2322', 
                                         'startrek_tos2265'),

@@ -34,7 +34,7 @@ class ContentStardate extends ContentElement
      *
      * @return string
      */
-    private function genBeOutput()
+    protected function genBeOutput()
     {
         $this->strTemplate = 'be_wildcard';
         $this->Template = new \BackendTemplate($this->strTemplate);
@@ -43,12 +43,37 @@ class ContentStardate extends ContentElement
     }
 
     /**
-     * Erzeugt die Ausgabe für das Frontend,
-     * falls keine Klartext Werte übergeben werden.
+     * Erzeugt die Ausgabe für das Frontend,.
      *
      * @return string
      */
-    private function genFeOutput()
+    protected function genFeOutput()
     {
+        switch ($this->calculate) {
+            case 'trekguide_f1':
+                $this->Template->stardateTag = '{{stardate::trekguide_f1|uncached}}';
+                break;
+            case 'trekguide_f2':
+                $this->Template->stardateTag = '{{stardate::trekguide_f2|uncached}}';
+                break;
+            case 'trekconnection':
+                $this->Template->stardateTag = '{{stardate::trekconnection|uncached}}';
+                break;
+            case 'trekguide_x11':
+                $this->Template->stardateTag = '{{stardate::trekguide_x11|uncached}}';
+                break;
+            case 'startrek_tng2323':
+                $this->Template->stardateTag = '{{stardate::startrek_tng2323|uncached}}';
+                break;
+            case 'startrek_tng2322':
+                $this->Template->stardateTag = '{{stardate::startrek_tng2322|uncached}}';
+                break;
+            case 'startrek_tos2265':
+                $this->Template->stardateTag = '{{stardate::startrek_tos2265|uncached}}';
+                break;
+            default:
+                $this->Template->stardateTag = '00000.00';
+                break;
+        }
     }
 }
