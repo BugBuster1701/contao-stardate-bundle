@@ -17,8 +17,8 @@ Installationsanleitung (DE): [INSTALLATION_DE.md](INSTALLATION_DE.md)
 
 ## User guide
 
-* English: https://docs.contao.ninja/en/stardate.html (follows, in process)
-* German: https://docs.contao.ninja/de/stardate.html (folgt, in Arbeit)
+* English: https://docs.contao.ninja/en/stardate.html
+* German: https://docs.contao.ninja/de/stardate.html
 
 ## For Translators
 
