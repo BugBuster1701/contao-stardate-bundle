@@ -59,7 +59,7 @@ class System
         }
 
         array_insert($GLOBALS['TL_CTE']['texts'], 2, [
-            'content_stardate' => 'BugBuster\StardateBundle\ContentElement\ContentStardate',
+            'stardate' => 'BugBuster\StardateBundle\ContentElement\ContentStardate',
         ]);
     }
 }

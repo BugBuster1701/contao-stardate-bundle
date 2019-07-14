@@ -49,7 +49,7 @@ class ContentStardate extends ContentElement
      */
     protected function genFeOutput()
     {
-        switch ($this->calculate) {
+        switch ($this->calculateStardate) {
             case 'trekguide_f1':
                 $this->Template->stardateTag = '{{stardate::trekguide_f1|uncached}}';
                 break;

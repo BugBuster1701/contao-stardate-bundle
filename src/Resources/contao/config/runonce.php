@@ -22,10 +22,10 @@ class StardateRunonce extends Controller
 
         if ($migration === true)
         {
-            $objOld = $this->Database->execute("SELECT `id`, `calculate` FROM `tl_content` WHERE `calculate` != ''");
+            $objOld = $this->Database->execute("SELECT `id`, `type`, `calculate` FROM `tl_content` WHERE `calculate` != ''");
             while ($objOld->next())
             {
-                $this->Database->prepare("UPDATE `tl_content` SET `calculateStardate`=? WHERE `id`=?")
+                $this->Database->prepare("UPDATE `tl_content` SET `type`='stardate', `calculateStardate`=? WHERE `id`=?")
                                 ->execute($objOld->calculate, $objOld->id);
                 //Protokoll
                 $strText = 'Stardate-Bundle "'.$objOld->calculate.'" (id:'.$objOld->id.') has been migrated';
