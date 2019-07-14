@@ -5,17 +5,18 @@
  */
 $strName = 'tl_content';
 
-// Palettes
-$GLOBALS['TL_DCA'][$strName]['palettes']['content_stardate'] = '{type_legend},type;{calculate_legend},calculate;{invisible_legend:hide},invisible,start,stop;';
+// Palettes, old: content_stardate
+$GLOBALS['TL_DCA'][$strName]['palettes']['stardate'] = '{type_legend},type;{calculateStardate_legend},calculateStardate;{template_legend:hide},customTpl;{invisible_legend:hide},invisible,start,stop;';
 
-$GLOBALS['TL_DCA'][$strName]['fields']['calculate'] = array
+// old: calculate
+$GLOBALS['TL_DCA'][$strName]['fields']['calculateStardate'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG'][$strName]['calculate'],
+    'label'                   => &$GLOBALS['TL_LANG'][$strName]['calculateStardate'],
     'default'                 => 'default',
     'exclude'                 => true,
     'filter'                  => true,
     'sorting'                 => true,
-    'explanation'             => 'calculate_help',
+    'explanation'             => 'calculateStardate_help',
     'inputType'               => 'select',
     'options'                 => array('default',
                                         'trekguide_f1', 

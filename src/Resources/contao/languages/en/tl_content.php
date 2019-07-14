@@ -3,12 +3,12 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_content']['calculate']['0'] = 'Calculation';
-$GLOBALS['TL_LANG']['tl_content']['calculate']['1'] = 'Select the type of calculation';
+$GLOBALS['TL_LANG']['tl_content']['calculateStardate']['0'] = 'Calculation';
+$GLOBALS['TL_LANG']['tl_content']['calculateStardate']['1'] = 'Select the type of the calculation';
 /**
  * Legends
  */
-$GLOBALS['TL_LANG']['tl_content']['calculate_legend'] = 'Types of calculation';
+$GLOBALS['TL_LANG']['tl_content']['calculateStardate_legend'] = 'Types of the stardate calculation';
 /**
  * Options
  */

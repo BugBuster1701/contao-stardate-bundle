@@ -5,9 +5,9 @@
  * Fields
  */
 
-$GLOBALS['TL_LANG']['tl_content']['calculate']['0']   = 'Berechnung';
-$GLOBALS['TL_LANG']['tl_content']['calculate']['1']   = 'Art der Berechnung auswählen';
-$GLOBALS['TL_LANG']['tl_content']['calculate_legend'] = 'Berechnungsarten';
+$GLOBALS['TL_LANG']['tl_content']['calculateStardate']['0']   = 'Berechnung';
+$GLOBALS['TL_LANG']['tl_content']['calculateStardate']['1']   = 'Art der Berechnung auswählen';
+$GLOBALS['TL_LANG']['tl_content']['calculateStardate_legend'] = 'Berechnungsarten';
 $GLOBALS['TL_LANG']['tl_content']['default']          = 'Bitte auswählen';
 $GLOBALS['TL_LANG']['tl_content']['startrek_tng2322'] = 'Star Trek TNG Sternzeit nach TrekGuide.com (2322)';
 $GLOBALS['TL_LANG']['tl_content']['startrek_tng2323'] = 'Star Trek TNG Sternzeit nach lcars.org.uk (2323)';
