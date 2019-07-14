@@ -29,7 +29,7 @@ class StardateRunonce extends Controller
                                 ->execute($objOld->calculate, $objOld->id);
                 //Protokoll
                 $strText = 'Stardate-Bundle "'.$objOld->calculate.'" (id:'.$objOld->id.') has been migrated';
-                $this->Database->prepare("INSERT INTO `tl_log` (tstamp, source, action, username, text, func, ip, browser) VALUES(?, ?, ?, ?, ?, ?, ?, ?)")
+                $this->Database->prepare("INSERT INTO `tl_log` (tstamp, source, action, username, text, func, browser) VALUES(?, ?, ?, ?, ?, ?, ?)")
                                 ->execute(time(), 'BE', 'CONFIGURATION', '', specialchars($strText), 'Stardate Bundle Migration', '127.0.0.1', 'NoBrowser');
             }
         }
