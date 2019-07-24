@@ -15,3 +15,5 @@ $GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array(
     'bugbuster.stardatebundle.insert_tags',
     'onReplaceInsertTags'
 );
+
+$GLOBALS['TL_HOOKS']['sqlGetFromDca'][] = array('BugBuster\StardateBundle\Runonce\GetFromDcaHook', 'runMigration');
