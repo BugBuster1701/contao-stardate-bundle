@@ -19,12 +19,13 @@ class GetFromDcaHook
     public function runMigration(array $definition)
     {
         $this->runMigration200($definition);
-        
+        log_message(sprintf('[%s] %s','GetFromDcaHook::runMigration',print_r($definition,true)),'stardate_debug.log');
         return $definition;
     }
 
     public function runMigration200(array $definition)
     {
+        $migration = false;
         if (\Contao\Database::getInstance()->tableExists('tl_content'))
         {
             if (\Contao\Database::getInstance()->fieldExists('calculate', 'tl_content')
