@@ -14,15 +14,53 @@ declare(strict_types=1);
 
 namespace BugBuster\StardateBundle\Runonce;
 
-class GetFromDbHook
+class CompileCommands
 {
+    /**
+     * Hook Call
+     *
+     * @param  array $definition Array of SQL statements
+     * @return array             Array of SQL statements
+     */
     public function runMigration(array $definition)
     {
         $this->runMigration200($definition);
         log_message(sprintf('[%s] %s','GetFromDbHook::runMigration',print_r($definition,true)),'stardate_debug.log');
+        $definition = $this->manipulateSqlCommands($definition);
+        log_message(sprintf('[%s] %s','GetFromDbHook::manipulatSqlCommands',print_r($definition,true)),'stardate_debug.log');
         return $definition;
     }
 
+    /**
+     * Delete the ALTER TABLE command
+     * 
+     * @param  array $return Array of SQL statements
+     * @return array         Array of SQL statements
+     */
+    public function manipulateSqlCommands($return)
+    {
+        if (is_array($return['ALTER_CHANGE'])) 
+        {
+            $return['ALTER_CHANGE'] = array_filter(
+                $return['ALTER_CHANGE'],
+                function ($sql) {
+                    return strpos($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate') === false;
+                }
+            );
+
+            if (empty($return['ALTER_CHANGE'])) {
+                unset($return['ALTER_CHANGE']);
+            }
+        }
+        return $return;
+    }
+
+    /**
+     * Run the migration to version 2.0.0
+     *
+     * @param array $definition Array of SQL statements
+     * @return void
+     */
     public function runMigration200(array $definition)
     {
         $migration = false;

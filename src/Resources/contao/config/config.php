@@ -16,4 +16,4 @@ $GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array(
     'onReplaceInsertTags'
 );
 
-$GLOBALS['TL_HOOKS']['sqlGetFromDB'][] = array('BugBuster\StardateBundle\Runonce\GetFromDbHook', 'runMigration');
+$GLOBALS['TL_HOOKS']['sqlCompileCommands'][] = array('BugBuster\StardateBundle\Runonce\CompileCommands', 'runMigration');
