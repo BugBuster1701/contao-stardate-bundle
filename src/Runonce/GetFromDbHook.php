@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 namespace BugBuster\StardateBundle\Runonce;
 
-class GetFromDcaHook
+class GetFromDbHook
 {
     public function runMigration(array $definition)
     {
         $this->runMigration200($definition);
-        log_message(sprintf('[%s] %s','GetFromDcaHook::runMigration',print_r($definition,true)),'stardate_debug.log');
+        log_message(sprintf('[%s] %s','GetFromDbHook::runMigration',print_r($definition,true)),'stardate_debug.log');
         return $definition;
     }
 
