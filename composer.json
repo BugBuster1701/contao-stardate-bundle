@@ -22,7 +22,7 @@
 	"require":{
 		"php": "^7.1",
 		"contao/core-bundle": ">=4.6,<4.9",
-		"contao/manager-plugin": "^2.6.2"
+		"contao/manager-plugin": "^2.0"
 	},
 	"require-dev": {
 		"friendsofphp/php-cs-fixer": "^2.14",
@@ -56,7 +56,7 @@
 			}
 		},
 		"branch-alias": {
-			"dev-master": "1.1.x-dev"
+			"dev-master": "1.2.x-dev"
 		},
 		"contao-manager-plugin": "BugBuster\\StardateBundle\\ContaoManager\\Plugin"
 	}
