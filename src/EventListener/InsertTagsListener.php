@@ -92,10 +92,10 @@ class InsertTagsListener
      */
     private function generateReplacement(string $calc_method, string $datetime, string $datetimeformat)
     {
-        $date = DateTime::createFromFormat('U.u', microtime(true));
+        $date = \DateTime::createFromFormat('U.u', microtime(true));
 
         if (!empty($datetime) && !empty($datetimeformat)) {
-            $date = DateTime::createFromFormat($datetime,$datetimeformat);
+            $date = \DateTime::createFromFormat($datetime,$datetimeformat);
         }
         
         switch ($calc_method) {
