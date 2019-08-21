@@ -95,7 +95,10 @@ class InsertTagsListener
         $date = \DateTime::createFromFormat('0.u00 U', microtime());
 
         if (!empty($datetime) && !empty($datetimeformat)) {
-            $date = \DateTime::createFromFormat($datetime,$datetimeformat);
+            $date = \DateTime::createFromFormat($datetimeformat, $datetime);
+            if (false === $date) {
+                return "Error on DateTime::createFromFormat($datetimeformat, $datetime)";
+            }
         }
         
         switch ($calc_method) {
@@ -203,8 +206,9 @@ class InsertTagsListener
         $MinutesPart = (int) $datetime->format('i') / 60;
         $HoursPart = ((int) $datetime->format('H') + $MinutesPart) / 24;
         $SDMonth = round((floor($Days) + $HoursPart) / $DaysInYear * 1000, 2);
-
-        return $SDYear.$SDMonth;
+        $YM = $SDYear.$SDMonth;
+        
+        return number_format($YM, 2, '.', '');
     }
 
     private function calculateStardateTng2322(\DateTimeInterface $datetime)
