@@ -96,7 +96,7 @@ class InsertTagsListener
 
         if (!empty($datetime) && !empty($datetimeformat)) {
             $date = \DateTime::createFromFormat($datetimeformat, $datetime);
-            if (false === $date) {
+            if (false === $date) { //TODO: Sprachvariable verwenden, Logausgabe?
                 return "Error on DateTime::createFromFormat($datetimeformat, $datetime)";
             }
         }
