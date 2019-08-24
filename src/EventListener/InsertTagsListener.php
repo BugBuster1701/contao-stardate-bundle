@@ -16,6 +16,8 @@ namespace BugBuster\StardateBundle\EventListener;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\StringUtil;
+use Psr\Log\LogLevel;
+use Contao\CoreBundle\Monolog\ContaoContext;
 
 /**
  * Listener for replace insert tags
@@ -97,8 +99,14 @@ class InsertTagsListener
             $date = \DateTime::createFromFormat($datetimeformat, $datetime);
             if (false === $date) {
                 \System::loadLanguageFile('tl_stardate_event');
+                $message = sprintf($GLOBALS['TL_LANG']['tl_stardate_event']['error_datetime'], $datetimeformat, $datetime);
+                \System::getContainer()
+                    ->get('monolog.logger.contao')
+                    ->log(LogLevel::ERROR,
+                        $message,
+                        array('contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', TL_ERROR)));
 
-                return sprintf($GLOBALS['TL_LANG']['tl_stardate_event']['error_datetime'], $datetimeformat, $datetime);
+                return $message;
             }
         }
 
