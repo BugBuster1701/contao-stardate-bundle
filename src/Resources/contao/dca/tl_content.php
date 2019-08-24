@@ -29,6 +29,6 @@ $GLOBALS['TL_DCA'][$strName]['fields']['calculateStardate'] = array
     'reference'               => &$GLOBALS['TL_LANG'][$strName],
     //'foreignKey'            => 'tl_user.name',
     //'options_callback'      => array('CLASS', 'METHOD'),
-    'eval'                    => array('includeBlankOption'=>true, 'tl_class'=>'w50', 'helpwizard'=>true),
+    'eval'                    => array('includeBlankOption'=>false, 'tl_class'=>'w50', 'helpwizard'=>true),
     'sql'                     => "varchar(255) NOT NULL default ''"
 );
