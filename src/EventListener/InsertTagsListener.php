@@ -19,8 +19,8 @@ use Contao\StringUtil;
 
 /**
  * Listener for replace insert tags
- * to calculate the stardate
- * 
+ * to calculate the stardate.
+ *
  * Usage for actualy stardate:
  *     {{stardate::trekguide_f1|uncached}}
  *     {{stardate::trekguide_f2|uncached}}
@@ -29,7 +29,7 @@ use Contao\StringUtil;
  *     {{stardate::startrek_tng2323|uncached}}
  *     {{stardate::startrek_tng2322|uncached}}
  *     {{stardate::startrek_tos2265|uncached}}
- * 
+ *
  * Usage with parameter for specially stardate:
  *     {{stardate::trekguide_f1::'2019-08-20 13:37'::'Y-m-d H:i'|uncached}}
  *     {{stardate::trekguide_f2::<datetime>::<format>|uncached}}
@@ -38,7 +38,6 @@ use Contao\StringUtil;
  *     {{stardate::startrek_tng2323::<datetime>::<format>|uncached}}
  *     {{stardate::startrek_tng2322::<datetime>::<format>|uncached}}
  *     {{stardate::startrek_tos2265::<datetime>::<format>|uncached}}
- * 
  */
 class InsertTagsListener
 {
@@ -77,7 +76,7 @@ class InsertTagsListener
         if (!isset($elements[2])) {
             $elements[2] = '';
         }
-        
+
         if (!isset($elements[3])) {
             $elements[3] = '';
         }
@@ -98,10 +97,11 @@ class InsertTagsListener
             $date = \DateTime::createFromFormat($datetimeformat, $datetime);
             if (false === $date) {
                 \System::loadLanguageFile('tl_stardate_event');
+
                 return sprintf($GLOBALS['TL_LANG']['tl_stardate_event']['error_datetime'], $datetimeformat, $datetime);
             }
         }
-        
+
         switch ($calc_method) {
             case 'trekguide_f1':
                 return $this->calculateStardateTrekguide_f1($date);
@@ -208,8 +208,8 @@ class InsertTagsListener
         $HoursPart = ((int) $datetime->format('H') + $MinutesPart) / 24;
         $SDMonth = round((floor($Days) + $HoursPart) / $DaysInYear * 1000, 2);
         $YM = $SDYear.$SDMonth;
-        
-        return number_format((float)$YM, 2, '.', '');
+
+        return number_format((float) $YM, 2, '.', '');
     }
 
     private function calculateStardateTng2322(\DateTimeInterface $datetime)

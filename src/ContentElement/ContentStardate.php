@@ -40,7 +40,7 @@ class ContentStardate extends ContentElement
         $this->strTemplate = 'be_wildcard';
         $this->Template = new \BackendTemplate($this->strTemplate);
         $calc = $GLOBALS['TL_LANG']['tl_content'][$this->calculateStardate];
-        $this->Template->wildcard = '=/\= ' . $calc .' =/\=';
+        $this->Template->wildcard = '=/\= '.$calc.' =/\=';
     }
 
     /**
