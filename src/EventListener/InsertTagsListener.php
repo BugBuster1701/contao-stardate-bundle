@@ -208,7 +208,7 @@ class InsertTagsListener
         $SDMonth = round((floor($Days) + $HoursPart) / $DaysInYear * 1000, 2);
         $YM = $SDYear.$SDMonth;
         
-        return number_format($YM, 2, '.', '');
+        return number_format((float)$YM, 2, '.', '');
     }
 
     private function calculateStardateTng2322(\DateTimeInterface $datetime)
