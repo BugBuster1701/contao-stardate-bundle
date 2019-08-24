@@ -96,8 +96,9 @@ class InsertTagsListener
 
         if (!empty($datetime) && !empty($datetimeformat)) {
             $date = \DateTime::createFromFormat($datetimeformat, $datetime);
-            if (false === $date) { //TODO: Sprachvariable verwenden, Logausgabe?
-                return "Error on DateTime::createFromFormat($datetimeformat, $datetime)";
+            if (false === $date) {
+                \System::loadLanguageFile('tl_stardate_event');
+                return sprintf($GLOBALS['TL_LANG']['tl_stardate_event']['error_datetime'], $datetimeformat, $datetime);
             }
         }
         

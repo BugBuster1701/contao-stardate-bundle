@@ -12,13 +12,13 @@ $GLOBALS['TL_DCA'][$strName]['palettes']['stardate'] = '{type_legend},type;{calc
 $GLOBALS['TL_DCA'][$strName]['fields']['calculateStardate'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG'][$strName]['calculateStardate'],
-    'default'                 => 'default',
+    'default'                 => 'stardate_default',
     'exclude'                 => true,
     'filter'                  => true,
     'sorting'                 => true,
     'explanation'             => 'calculateStardate_help',
     'inputType'               => 'select',
-    'options'                 => array('default',
+    'options'                 => array('stardate_default',
                                         'trekguide_f1', 
                                         'trekguide_f2', 
                                         'trekconnection', 
