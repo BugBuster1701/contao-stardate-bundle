@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace BugBuster\StardateBundle\EventListener;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\CoreBundle\Monolog\ContaoContext;
 use Contao\StringUtil;
 use Psr\Log\LogLevel;
-use Contao\CoreBundle\Monolog\ContaoContext;
 
 /**
  * Listener for replace insert tags
@@ -104,7 +104,8 @@ class InsertTagsListener
                     ->get('monolog.logger.contao')
                     ->log(LogLevel::ERROR,
                         $message,
-                        array('contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', TL_ERROR)));
+                        ['contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', TL_ERROR)])
+                ;
 
                 return $message;
             }
