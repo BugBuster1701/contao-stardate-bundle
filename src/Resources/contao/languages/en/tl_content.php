@@ -12,7 +12,7 @@ $GLOBALS['TL_LANG']['tl_content']['calculateStardate_legend'] = 'Types of the st
 /**
  * Options
  */
-$GLOBALS['TL_LANG']['tl_content']['default']          = 'Please select';
+$GLOBALS['TL_LANG']['tl_content']['stardate_default'] = 'Please select';
 $GLOBALS['TL_LANG']['tl_content']['trekguide_f1']     = 'Fictional Stardate by TrekGuide.com (Today)';
 $GLOBALS['TL_LANG']['tl_content']['trekguide_f2']     = 'Fictional Stardate by TrekGuide.com (1946)';
 $GLOBALS['TL_LANG']['tl_content']['trekconnection']   = 'Fictional Stardate by TrekConnection.com';

@@ -39,8 +39,8 @@ class ContentStardate extends ContentElement
     {
         $this->strTemplate = 'be_wildcard';
         $this->Template = new \BackendTemplate($this->strTemplate);
-        $this->Template->title = $this->headline;
-        $this->Template->wildcard = '### Content Stardate ###';
+        $calc = $GLOBALS['TL_LANG']['tl_content'][$this->calculateStardate];
+        $this->Template->wildcard = '=/\= '.$calc.' =/\=';
     }
 
     /**

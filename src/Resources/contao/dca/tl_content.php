@@ -12,13 +12,13 @@ $GLOBALS['TL_DCA'][$strName]['palettes']['stardate'] = '{type_legend},type;{calc
 $GLOBALS['TL_DCA'][$strName]['fields']['calculateStardate'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG'][$strName]['calculateStardate'],
-    'default'                 => 'default',
+    'default'                 => 'stardate_default',
     'exclude'                 => true,
     'filter'                  => true,
     'sorting'                 => true,
     'explanation'             => 'calculateStardate_help',
     'inputType'               => 'select',
-    'options'                 => array('default',
+    'options'                 => array('stardate_default',
                                         'trekguide_f1', 
                                         'trekguide_f2', 
                                         'trekconnection', 
@@ -29,6 +29,6 @@ $GLOBALS['TL_DCA'][$strName]['fields']['calculateStardate'] = array
     'reference'               => &$GLOBALS['TL_LANG'][$strName],
     //'foreignKey'            => 'tl_user.name',
     //'options_callback'      => array('CLASS', 'METHOD'),
-    'eval'                    => array('includeBlankOption'=>true, 'tl_class'=>'w50', 'helpwizard'=>true),
+    'eval'                    => array('includeBlankOption'=>false, 'tl_class'=>'w50', 'helpwizard'=>true),
     'sql'                     => "varchar(255) NOT NULL default ''"
 );
