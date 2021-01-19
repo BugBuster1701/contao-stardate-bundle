@@ -20,14 +20,14 @@
 		"forum":"https://community.contao.org/de/forumdisplay.php?119-Sonstige-Erweiterungen"
 	},
 	"require":{
-		"php": "^7.1",
-		"contao/core-bundle": "^4.8",
-		"contao/manager-plugin": "^2.0"
+		"php": "^7.2 || ^8.0",
+		"contao/core-bundle": "^4.9"
 	},
 	"require-dev": {
-		"friendsofphp/php-cs-fixer": "^2.14",
+		"contao/manager-plugin": "^2.0",
+		"friendsofphp/php-cs-fixer": "^2.17",
 		"php-http/guzzle6-adapter" : "*",
-		"phpunit/phpunit": "^7.0"
+		"phpunit/phpunit": "^8.5 || ^9.3"
 	},
 	"conflict": {
 		"contao/manager-plugin": "<2.0 || >=3.0"

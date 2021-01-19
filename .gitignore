@@ -12,3 +12,12 @@ composer.lock
 
 # Transifex
 /.tx/
+
+# phpunit
+.phpunit.result.cache
+
+#gren 
+#https://github-tools.github.io/github-release-notes/options.html
+.grenrc-1.js
+.grenrc-backup
+.grenrc.js.backup
