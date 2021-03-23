@@ -46,16 +46,18 @@ class CompileCommands
      */
     public function manipulateSqlCommands($return)
     {
-        if (\is_array($return['ALTER_CHANGE'])) {
-            $return['ALTER_CHANGE'] = array_filter(
-                $return['ALTER_CHANGE'],
-                function ($sql) {
-                    return false === strpos($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate');
-                }
-            );
+        if (isset($return['ALTER_CHANGE'])) {
+            if (\is_array($return['ALTER_CHANGE'])) {
+                $return['ALTER_CHANGE'] = array_filter(
+                    $return['ALTER_CHANGE'],
+                    function ($sql) {
+                        return false === strpos($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate');
+                    }
+                );
 
-            if (empty($return['ALTER_CHANGE'])) {
-                unset($return['ALTER_CHANGE']);
+                if (empty($return['ALTER_CHANGE'])) {
+                    unset($return['ALTER_CHANGE']);
+                }
             }
         }
 
