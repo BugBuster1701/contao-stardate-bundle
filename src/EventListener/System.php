@@ -58,7 +58,7 @@ class System
             //$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/stardatebundle/js/dummy.js|static';
         }
 
-        array_insert($GLOBALS['TL_CTE']['texts'], 2, [
+        \Contao\ArrayUtil::arrayInsert($GLOBALS['TL_CTE']['texts'], 2, [
             'stardate' => 'BugBuster\StardateBundle\ContentElement\ContentStardate',
         ]);
     }
