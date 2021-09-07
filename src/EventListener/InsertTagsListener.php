@@ -98,9 +98,9 @@ class InsertTagsListener
         if (!empty($datetime) && !empty($datetimeformat)) {
             $date = \DateTime::createFromFormat($datetimeformat, $datetime);
             if (false === $date) {
-                \System::loadLanguageFile('tl_stardate_event');
+                \Contao\System::loadLanguageFile('tl_stardate_event');
                 $message = sprintf($GLOBALS['TL_LANG']['tl_stardate_event']['error_datetime'], $datetimeformat, $datetime);
-                \System::getContainer()
+                \Contao\System::getContainer()
                     ->get('monolog.logger.contao')
                     ->log(LogLevel::ERROR,
                         $message,
