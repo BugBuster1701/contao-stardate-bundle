@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace BugBuster\StardateBundle\EventListener;
 
-use Contao\ArrayUtil;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -59,8 +58,32 @@ class System
             //$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/stardatebundle/js/dummy.js|static';
         }
 
-        ArrayUtil::arrayInsert($GLOBALS['TL_CTE']['texts'], 2, [
+        #\Contao\ArrayUtil::arrayInsert($GLOBALS['TL_CTE']['texts'], 2, [
+        #    'stardate' => 'BugBuster\StardateBundle\ContentElement\ContentStardate',
+        #]);
+        $this->arrayInsertCTE($GLOBALS['TL_CTE']['texts'], 2, [
             'stardate' => 'BugBuster\StardateBundle\ContentElement\ContentStardate',
         ]);
     }
+
+    # workaround, da bei \Contao\ArrayUtil ein warmup error kommt class not found
+    public function arrayInsertCTE(&$arrCurrent, $intIndex, $arrNew): void
+	{
+		if (!\is_array($arrCurrent))
+		{
+			$arrCurrent = $arrNew;
+
+			return;
+		}
+
+		if (\is_array($arrNew))
+		{
+			$arrBuffer = array_splice($arrCurrent, 0, $intIndex);
+			$arrCurrent = array_merge_recursive($arrBuffer, $arrNew, $arrCurrent);
+
+			return;
+		}
+
+		array_splice($arrCurrent, $intIndex, 0, $arrNew);
+	}
 }
