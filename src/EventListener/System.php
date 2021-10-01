@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace BugBuster\StardateBundle\EventListener;
 
+use Contao\ArrayUtil;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -58,7 +59,7 @@ class System
             //$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/stardatebundle/js/dummy.js|static';
         }
 
-        \Contao\ArrayUtil::arrayInsert($GLOBALS['TL_CTE']['texts'], 2, [
+        ArrayUtil::arrayInsert($GLOBALS['TL_CTE']['texts'], 2, [
             'stardate' => 'BugBuster\StardateBundle\ContentElement\ContentStardate',
         ]);
     }
