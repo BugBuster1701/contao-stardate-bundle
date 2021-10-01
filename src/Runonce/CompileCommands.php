@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle
  *
- * @copyright  Glen Langer 2019 <http://contao.ninja>
+ * @copyright  Glen Langer 2019..2021 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
  * @license    LGPL-3.0-or-later
@@ -13,6 +13,8 @@ declare(strict_types=1);
  */
 
 namespace BugBuster\StardateBundle\Runonce;
+
+use Contao\StringUtil;
 
 /**
  * Class CompileCommands.
@@ -44,16 +46,18 @@ class CompileCommands
      */
     public function manipulateSqlCommands($return)
     {
-        if (\is_array($return['ALTER_CHANGE'])) {
-            $return['ALTER_CHANGE'] = array_filter(
-                $return['ALTER_CHANGE'],
-                function ($sql) {
-                    return false === strpos($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate');
-                }
-            );
+        if (isset($return['ALTER_CHANGE'])) {
+            if (\is_array($return['ALTER_CHANGE'])) {
+                $return['ALTER_CHANGE'] = array_filter(
+                    $return['ALTER_CHANGE'],
+                    function ($sql) {
+                        return false === strpos($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate');
+                    }
+                );
 
-            if (empty($return['ALTER_CHANGE'])) {
-                unset($return['ALTER_CHANGE']);
+                if (empty($return['ALTER_CHANGE'])) {
+                    unset($return['ALTER_CHANGE']);
+                }
             }
         }
 
@@ -83,7 +87,7 @@ class CompileCommands
             //Protokoll
             $strText = 'Stardate-Bundle has been migrated';
             \Contao\Database::getInstance()->prepare('INSERT INTO `tl_log` (tstamp, source, action, username, text, func, browser) VALUES(?, ?, ?, ?, ?, ?, ?)')
-                            ->execute(time(), 'BE', 'CONFIGURATION', '', specialchars($strText), 'Stardate Bundle Migration', '127.0.0.1', 'NoBrowser')
+                            ->execute(time(), 'BE', 'CONFIGURATION', '', StringUtil::specialchars($strText), 'Stardate Bundle Migration', '127.0.0.1', 'NoBrowser')
             ;
         }
     }

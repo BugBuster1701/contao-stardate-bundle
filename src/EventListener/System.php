@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle
  *
- * @copyright  Glen Langer 2019 <http://contao.ninja>
+ * @copyright  Glen Langer 2019..2021 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
  * @license    LGPL-3.0-or-later
@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace BugBuster\StardateBundle\EventListener;
 
+use Contao\ArrayUtil;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -58,7 +59,7 @@ class System
             //$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/stardatebundle/js/dummy.js|static';
         }
 
-        array_insert($GLOBALS['TL_CTE']['texts'], 2, [
+        ArrayUtil::arrayInsert($GLOBALS['TL_CTE']['texts'], 2, [
             'stardate' => 'BugBuster\StardateBundle\ContentElement\ContentStardate',
         ]);
     }

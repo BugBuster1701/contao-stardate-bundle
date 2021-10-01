@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle
  *
- * @copyright  Glen Langer 2019 <http://contao.ninja>
+ * @copyright  Glen Langer 2019..2021 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
  * @license    LGPL-3.0-or-later
@@ -38,7 +38,7 @@ class ContentStardate extends ContentElement
     protected function genBeOutput()
     {
         $this->strTemplate = 'be_wildcard';
-        $this->Template = new \BackendTemplate($this->strTemplate);
+        $this->Template = new \Contao\BackendTemplate($this->strTemplate);
         $calc = $GLOBALS['TL_LANG']['tl_content'][$this->calculateStardate];
         $this->Template->wildcard = '=/\= '.$calc.' =/\=';
     }
