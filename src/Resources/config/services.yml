@@ -1,4 +1,5 @@
 services:
+    _defaults: { autowire: true, autoconfigure: true, public: false }
     _instanceof:
         Contao\CoreBundle\Framework\FrameworkAwareInterface:
             calls:
@@ -7,3 +8,10 @@ services:
         Symfony\Component\DependencyInjection\ContainerAwareInterface:
             calls:
                 - ["setContainer", ["@service_container"]]
+
+    BugBuster\StardateBundle\Controller\ContentElement\StardateController:
+        public: true
+        tags:
+            -
+                name: contao.content_element
+                category: texts

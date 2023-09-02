@@ -1,3 +1,0 @@
-<?php if ($this->stardateTag): ?>
-<span class="ce_stardate calculate"><?= $this->stardateTag; ?></span>
-<?php endif; ?>
