@@ -2,7 +2,7 @@
 <?php $this->block('content'); ?>
 
 <?php if ($this->stardateTag): ?>
-<span class="calculate">Stardate for <?= str_replace('|uncached','',trim($this->stardateTag,'{}')); ?>:
+<span class="calculate">Stardate for <?= str_replace('fragment::{{stardate::','',trim($this->stardateTag,'{}')); ?>:
 	<?= $this->stardateTag; ?></span>
 <?php endif; ?>
 

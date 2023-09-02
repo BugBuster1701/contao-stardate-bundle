@@ -55,25 +55,25 @@ class ContentStardate extends ContentElement
     {
         switch ($this->calculateStardate) {
             case 'trekguide_f1':
-                $this->Template->stardateTag = '{{fragment::stardate::trekguide_f1}}';
+                $this->Template->stardateTag = '{{fragment::{{stardate::trekguide_f1}}}}';
                 break;
             case 'trekguide_f2':
-                $this->Template->stardateTag = '{{fragment::stardate::trekguide_f2}}';
+                $this->Template->stardateTag = '{{fragment::{{stardate::trekguide_f2}}}}';
                 break;
             case 'trekconnection':
-                $this->Template->stardateTag = '{{fragment::stardate::trekconnection}}';
+                $this->Template->stardateTag = '{{fragment::{{stardate::trekconnection}}}}';
                 break;
             case 'trekguide_x11':
-                $this->Template->stardateTag = '{{fragment::stardate::trekguide_x11}}';
+                $this->Template->stardateTag = '{{fragment::{{stardate::trekguide_x11}}}}';
                 break;
             case 'startrek_tng2323':
-                $this->Template->stardateTag = '{{fragment::stardate::startrek_tng2323}}';
+                $this->Template->stardateTag = '{{fragment::{{stardate::startrek_tng2323}}}}';
                 break;
             case 'startrek_tng2322':
-                $this->Template->stardateTag = '{{fragment::stardate::startrek_tng2322}}';
+                $this->Template->stardateTag = '{{fragment::{{stardate::startrek_tng2322}}}}';
                 break;
             case 'startrek_tos2265':
-                $this->Template->stardateTag = '{{fragment::stardate::startrek_tos2265}}';
+                $this->Template->stardateTag = '{{fragment::{{stardate::startrek_tos2265}}}}';
                 break;
             default:
                 $this->Template->stardateTag = '00000.00';

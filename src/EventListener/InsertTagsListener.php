@@ -24,22 +24,22 @@ use Psr\Log\LogLevel;
  * to calculate the stardate.
  *
  * Usage for actualy stardate:
- *     {{fragment::stardate::trekguide_f1}}
- *     {{fragment::stardate::trekguide_f2}}
- *     {{fragment::stardate::trekconnection}}
- *     {{fragment::stardate::trekguide_x11}}
- *     {{fragment::stardate::startrek_tng2323}}
- *     {{fragment::stardate::startrek_tng2322}}
- *     {{fragment::stardate::startrek_tos2265}}
+ *     {{fragment::{{stardate::trekguide_f1}}}}
+ *     {{fragment::{{stardate::trekguide_f2}}}}
+ *     {{fragment::{{stardate::trekconnection}}}}
+ *     {{fragment::{{stardate::trekguide_x11}}}}
+ *     {{fragment::{{stardate::startrek_tng2323}}}}
+ *     {{fragment::{{stardate::startrek_tng2322}}}}
+ *     {{fragment::{{stardate::startrek_tos2265}}}}
  *
  * Usage with parameter for specially stardate:
- *     {{fragment::stardate::trekguide_f1::'2019-08-20 13:37'::'Y-m-d H:i'}}
- *     {{fragment::stardate::trekguide_f2::<datetime>::<format>}}
- *     {{fragment::stardate::trekconnection::<datetime>::<format>}}
- *     {{fragment::stardate::trekguide_x11::<datetime>::<format>}}
- *     {{fragment::stardate::startrek_tng2323::<datetime>::<format>}}
- *     {{fragment::stardate::startrek_tng2322::<datetime>::<format>}}
- *     {{fragment::stardate::startrek_tos2265::<datetime>::<format>}}
+ *     {{fragment::{{stardate::trekguide_f1::'2019-08-20 13:37'::'Y-m-d H:i'}}}}
+ *     {{fragment::{{stardate::trekguide_f2::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::trekconnection::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::trekguide_x11::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::startrek_tng2323::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::startrek_tng2322::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::startrek_tos2265::<datetime>::<format>}}}}
  */
 class InsertTagsListener
 {
