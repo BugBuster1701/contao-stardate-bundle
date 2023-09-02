@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle
  *
- * @copyright  Glen Langer 2019..2021 <http://contao.ninja>
+ * @copyright  Glen Langer 2019..2023 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
  * @license    LGPL-3.0-or-later
@@ -51,7 +51,7 @@ class CompileCommands
                 $return['ALTER_CHANGE'] = array_filter(
                     $return['ALTER_CHANGE'],
                     function ($sql) {
-                        return false === strpos($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate');
+                        return !str_contains($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate');
                     }
                 );
 
@@ -84,7 +84,7 @@ class CompileCommands
         }
 
         if (true === $migration) {
-            //Protokoll
+            // Protokoll
             $strText = 'Stardate-Bundle has been migrated';
             \Contao\Database::getInstance()->prepare('INSERT INTO `tl_log` (tstamp, source, action, username, text, func, browser) VALUES(?, ?, ?, ?, ?, ?, ?)')
                             ->execute(time(), 'BE', 'CONFIGURATION', '', StringUtil::specialchars($strText), 'Stardate Bundle Migration', '127.0.0.1', 'NoBrowser')

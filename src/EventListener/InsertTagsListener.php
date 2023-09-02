@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle
  *
- * @copyright  Glen Langer 2019..2021 <http://contao.ninja>
+ * @copyright  Glen Langer 2019..2023 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
  * @license    LGPL-3.0-or-later
@@ -147,7 +147,7 @@ class InsertTagsListener
         // fictional Stardate
         // Sternzeit 00000.0 beginnt am 14.07.1946, um 18:00 Uhr.
         $date1 = mktime(18, 0, 0, 7, 14, 1946);
-        $date2 = $datetime->getTimestamp(); //time();
+        $date2 = $datetime->getTimestamp(); // time();
         $diffdays = (($date2 - $date1) / 86400);
         $strDate = round($diffdays / 365.25 * 1000, 1);
 
@@ -160,8 +160,8 @@ class InsertTagsListener
         // adapted in php
         $SDYear = 40000 + (($datetime->format('Y') - 1987) * 1000);
         $YearStartTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y'));
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $Days = ($NowTime - $YearStartTime) / 86400;
         if ($Days >= 183) {
@@ -186,8 +186,8 @@ class InsertTagsListener
         $SDYear = (int) $datetime->format('Y');
         $YearStartTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y'));
         $YearEndTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y') + 1);
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $Days = ($NowTime - $YearStartTime) / 86400;
         $DaysH = round($Days * 100 / (($YearEndTime - $YearStartTime) / 86400), 0);
@@ -209,8 +209,8 @@ class InsertTagsListener
         $YearStartTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y'));
         $YearEndTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y') + 1);
         $DaysInYear = ($YearEndTime - $YearStartTime) / 86400;
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $Days = ($NowTime - $YearStartTime) / 86400;
         $MinutesPart = (int) $datetime->format('i') / 60;
@@ -226,8 +226,8 @@ class InsertTagsListener
         // nach http://trekguide.com/Stardates.htm#TNG
         // Stardate 00000.0 began on May 25, 2322, at 00:00 hours.
         $SDBegin = mktime(0, 0, 0, 5, 25, 2322); // May 25, 2322 00:00:00
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $DiffTime = $NowTime - $SDBegin;
         $SDYear = $DiffTime / (60 * 60 * 24 * 365.2422);
@@ -241,8 +241,8 @@ class InsertTagsListener
         // http://trekguide.com/Stardates.htm#TOS
         // Stardate 0000.0 began on May 1, 2265 00:00:00
         $SDBegin = mktime(0, 0, 0, 5, 1, 2265); // May 1, 2265 00:00:00
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $DiffTime = $NowTime - $SDBegin;
         $SDYear = $DiffTime / (60 * 60 * 24 * 365.2422);
