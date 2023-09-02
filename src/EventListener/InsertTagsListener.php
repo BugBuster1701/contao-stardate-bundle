@@ -24,22 +24,22 @@ use Psr\Log\LogLevel;
  * to calculate the stardate.
  *
  * Usage for actualy stardate:
- *     {{stardate::trekguide_f1|uncached}}
- *     {{stardate::trekguide_f2|uncached}}
- *     {{stardate::trekconnection|uncached}}
- *     {{stardate::trekguide_x11|uncached}}
- *     {{stardate::startrek_tng2323|uncached}}
- *     {{stardate::startrek_tng2322|uncached}}
- *     {{stardate::startrek_tos2265|uncached}}
+ *     {{fragment::stardate::trekguide_f1}}
+ *     {{fragment::stardate::trekguide_f2}}
+ *     {{fragment::stardate::trekconnection}}
+ *     {{fragment::stardate::trekguide_x11}}
+ *     {{fragment::stardate::startrek_tng2323}}
+ *     {{fragment::stardate::startrek_tng2322}}
+ *     {{fragment::stardate::startrek_tos2265}}
  *
  * Usage with parameter for specially stardate:
- *     {{stardate::trekguide_f1::'2019-08-20 13:37'::'Y-m-d H:i'|uncached}}
- *     {{stardate::trekguide_f2::<datetime>::<format>|uncached}}
- *     {{stardate::trekconnection::<datetime>::<format>|uncached}}
- *     {{stardate::trekguide_x11::<datetime>::<format>|uncached}}
- *     {{stardate::startrek_tng2323::<datetime>::<format>|uncached}}
- *     {{stardate::startrek_tng2322::<datetime>::<format>|uncached}}
- *     {{stardate::startrek_tos2265::<datetime>::<format>|uncached}}
+ *     {{fragment::stardate::trekguide_f1::'2019-08-20 13:37'::'Y-m-d H:i'}}
+ *     {{fragment::stardate::trekguide_f2::<datetime>::<format>}}
+ *     {{fragment::stardate::trekconnection::<datetime>::<format>}}
+ *     {{fragment::stardate::trekguide_x11::<datetime>::<format>}}
+ *     {{fragment::stardate::startrek_tng2323::<datetime>::<format>}}
+ *     {{fragment::stardate::startrek_tng2322::<datetime>::<format>}}
+ *     {{fragment::stardate::startrek_tos2265::<datetime>::<format>}}
  */
 class InsertTagsListener
 {
@@ -104,7 +104,7 @@ class InsertTagsListener
                     ->get('monolog.logger.contao')
                     ->log(LogLevel::ERROR,
                         $message,
-                        ['contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', TL_ERROR)])
+                        ['contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', ContaoContext::ERROR)])
                 ;
 
                 return $message;
