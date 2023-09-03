@@ -5,7 +5,7 @@
             <span class="calculate">{{ wildcard }}</span>
     {% else %}
         {% if stardateTag %}
-            <span class="calculate">{{ stardateTag }}</span>
+            <span class="calculate">Stardate for {{ stardateTag|trim('{{fragment::{{','left')|trim('}') }}: {{ stardateTag }}</span>
         {% endif %}
     {% endif %}
 {% endblock %}

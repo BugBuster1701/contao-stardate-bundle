@@ -20,7 +20,7 @@ class StardateController extends AbstractContentElementController
         	->getCurrentRequest() ?? Request::create(''))) 
         {
             $calc = $GLOBALS['TL_LANG']['tl_content'][$model->calculateStardate];
-            $template->set('stardateTag', '=/\= '.$calc.' =/\=');
+            $template->set('wildcard', '=/\= '.$calc.' =/\=');
 
             return $template->getResponse();
         }
