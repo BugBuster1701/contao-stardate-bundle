@@ -16,4 +16,4 @@ $GLOBALS['TL_LANG']['tl_content']['trekconnection']           = 'Fiktive Sternze
 $GLOBALS['TL_LANG']['tl_content']['trekguide_f1']             = 'Fiktive Sternzeit nach TrekGuide.com (Today)';
 $GLOBALS['TL_LANG']['tl_content']['trekguide_f2']             = 'Fiktive Sternzeit nach TrekGuide.com (1946)';
 $GLOBALS['TL_LANG']['tl_content']['trekguide_x11']            = 'ST XI Variante nach TrekGuide.com';
-
+$GLOBALS['TL_LANG']['tl_content']['startrek_beyond']          = 'Star Trek XIII Variante';

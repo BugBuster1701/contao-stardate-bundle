@@ -262,8 +262,9 @@ class InsertTagsListener
         // From the respective year with the corresponding day of the year together.
         // The stardate 2257.42 corresponds to the 42nd day of the year 2257.
         $SDYear = $datetime->format('Y');
-        $SDDay = date("z", mktime(0, 0, 0, (int) $datetime->format('m'), (int) $datetime->format('d'), (int) $datetime->format('Y')));
+        // 1.1.YYYY is day 0
+        $SDDay = 1 + (int) date("z", mktime(0, 0, 0, (int) $datetime->format('m'), (int) $datetime->format('d'), (int) $datetime->format('Y')));
         
-        return $SDYear.'.'.$SDDay;
+        return $SDYear .'.'. (string) $SDDay;
     }
 }
