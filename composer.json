@@ -1,6 +1,6 @@
 {
 	"name":"bugbuster/contao-stardate-bundle",
-	"description":"Contao 4 bundle, calculate the Star Trek Stardates.",
+	"description":"Contao 5 bundle, calculate the Star Trek Stardates.",
 	"keywords":["contao","bundle", "star trek", "stardate"],
 	"type":"contao-bundle",
 	"homepage":"http://contao.ninja",
