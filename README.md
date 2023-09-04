@@ -24,8 +24,8 @@ Installationsanleitung (DE): [INSTALLATION_DE.md](INSTALLATION_DE.md)
 
 Translations are managed using Transifex. To create a new translation or to help to maintain an existing one, please register at transifex.com.
 
-Project Link: [https://www.transifex.com/projects/p/contao-stardate-bundle/](https://www.transifex.com/projects/p/contao-stardate-bundle/)
+Project Link: [https://explore.transifex.com/bugbuster/contao-stardate-bundle/](https://explore.transifex.com/bugbuster/contao-stardate-bundle/)
 
-Howto: [http://docs.transifex.com/faq/#translating](http://docs.transifex.com/faq/#translating)
+Howto: [https://help.transifex.com/en/](https://help.transifex.com/en/)
 
 
