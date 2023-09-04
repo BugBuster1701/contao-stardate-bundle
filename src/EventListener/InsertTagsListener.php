@@ -31,6 +31,7 @@ use Psr\Log\LogLevel;
  *     {{fragment::{{stardate::startrek_tng2323}}}}
  *     {{fragment::{{stardate::startrek_tng2322}}}}
  *     {{fragment::{{stardate::startrek_tos2265}}}}
+ *     {{fragment::{{stardate::startrek_beyond}}}}
  *
  * Usage with parameter for specially stardate:
  *     {{fragment::{{stardate::trekguide_f1::'2019-08-20 13:37'::'Y-m-d H:i'}}}}
@@ -40,6 +41,7 @@ use Psr\Log\LogLevel;
  *     {{fragment::{{stardate::startrek_tng2323::<datetime>::<format>}}}}
  *     {{fragment::{{stardate::startrek_tng2322::<datetime>::<format>}}}}
  *     {{fragment::{{stardate::startrek_tos2265::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::startrek_beyond::<datetime>::<format>}}}}
  */
 class InsertTagsListener
 {
@@ -126,6 +128,8 @@ class InsertTagsListener
                 return $this->calculateStardateTng2322($date);
             case 'startrek_tos2265':
                 return $this->calculateStardateTos2265($date);
+            case 'startrek_beyond':
+                return $this->calculateStardateBeyond($date);
         }
 
         return false;
@@ -250,5 +254,16 @@ class InsertTagsListener
         $SDYear = round((floor($SDYear * 100000) / 100) + 0.31, 2); // 0.31 kleine Korrektur noetig zum Javascript Original, damit beide gleich
 
         return number_format($SDYear, 2, '.', ''); // 3.4 to 3.40
+    }
+
+    private function calculateStardateBeyond(\DateTimeInterface $datetime)
+    {
+        // In "Star Trek" to "Star Trek Beyond" a new calculation was introduced.
+        // From the respective year with the corresponding day of the year together.
+        // The stardate 2257.42 corresponds to the 42nd day of the year 2257.
+        $SDYear = $datetime->format('Y');
+        $SDDay = date("z", mktime(0, 0, 0, (int) $datetime->format('m'), (int) $datetime->format('d'), (int) $datetime->format('Y')));
+        
+        return $SDYear.'.'.$SDDay;
     }
 }

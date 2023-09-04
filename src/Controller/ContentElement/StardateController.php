@@ -47,6 +47,9 @@ class StardateController extends AbstractContentElementController
             case 'startrek_tos2265':
                 $template->set('stardateTag', '{{fragment::{{stardate::startrek_tos2265}}}}');
                 break;
+            case 'startrek_beyond':
+                $template->set('stardateTag', '{{fragment::{{stardate::startrek_beyond}}}}');
+                break;
             default:
                 $template->set('stardateTag', '00000.00');
                 break;
