@@ -1,5 +1,15 @@
 <?php
 
+$header = <<<EOF
+This file is part of a BugBuster Contao Bundle
+
+@copyright  Glen Langer 2019..2023 <http://contao.ninja>
+@author     Glen Langer (BugBuster)
+@package    Contao Stardate Bundle
+@license    LGPL-3.0-or-later
+@see        https://github.com/BugBuster1701/contao-stardate-bundle
+EOF;
+
 $finder = PhpCsFixer\Finder::create()
     ->exclude('languages')
     ->exclude('templates')
@@ -9,7 +19,8 @@ $finder = PhpCsFixer\Finder::create()
     ])
 ;
 
-return PhpCsFixer\Config::create()
+$config = new PhpCsFixer\Config();
+return $config
     ->setRules([
         'align_multiline_comment' => true,
         'array_syntax' => ['syntax' => 'long'],
@@ -53,7 +64,7 @@ return PhpCsFixer\Config::create()
         'no_unneeded_control_parentheses' => true,
         'no_unneeded_curly_braces' => true,
         'no_unreachable_default_argument_value' => true,
-        'no_unused_imports' => true,
+        'no_unused_imports' => false,
         'no_whitespace_before_comma_in_array' => true,
         'no_whitespace_in_blank_line' => true,
         'normalize_index_brace' => true,
@@ -62,7 +73,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_align' => true,
         'phpdoc_annotation_without_dot' => true,
         'phpdoc_indent' => true,
-        'phpdoc_inline_tag' => true,
+        'phpdoc_inline_tag_normalizer' => true,
         'phpdoc_no_access' => true,
         'phpdoc_no_alias_tag' => true,
         'phpdoc_no_package' => true,

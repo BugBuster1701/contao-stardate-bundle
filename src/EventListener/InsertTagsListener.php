@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle
  *
- * @copyright  Glen Langer 2019..2021 <http://contao.ninja>
+ * @copyright  Glen Langer 2019..2023 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
  * @license    LGPL-3.0-or-later
@@ -24,22 +24,24 @@ use Psr\Log\LogLevel;
  * to calculate the stardate.
  *
  * Usage for actualy stardate:
- *     {{stardate::trekguide_f1|uncached}}
- *     {{stardate::trekguide_f2|uncached}}
- *     {{stardate::trekconnection|uncached}}
- *     {{stardate::trekguide_x11|uncached}}
- *     {{stardate::startrek_tng2323|uncached}}
- *     {{stardate::startrek_tng2322|uncached}}
- *     {{stardate::startrek_tos2265|uncached}}
+ *     {{fragment::{{stardate::trekguide_f1}}}}
+ *     {{fragment::{{stardate::trekguide_f2}}}}
+ *     {{fragment::{{stardate::trekconnection}}}}
+ *     {{fragment::{{stardate::trekguide_x11}}}}
+ *     {{fragment::{{stardate::startrek_tng2323}}}}
+ *     {{fragment::{{stardate::startrek_tng2322}}}}
+ *     {{fragment::{{stardate::startrek_tos2265}}}}
+ *     {{fragment::{{stardate::startrek_beyond}}}}
  *
  * Usage with parameter for specially stardate:
- *     {{stardate::trekguide_f1::'2019-08-20 13:37'::'Y-m-d H:i'|uncached}}
- *     {{stardate::trekguide_f2::<datetime>::<format>|uncached}}
- *     {{stardate::trekconnection::<datetime>::<format>|uncached}}
- *     {{stardate::trekguide_x11::<datetime>::<format>|uncached}}
- *     {{stardate::startrek_tng2323::<datetime>::<format>|uncached}}
- *     {{stardate::startrek_tng2322::<datetime>::<format>|uncached}}
- *     {{stardate::startrek_tos2265::<datetime>::<format>|uncached}}
+ *     {{fragment::{{stardate::trekguide_f1::'2019-08-20 13:37'::'Y-m-d H:i'}}}}
+ *     {{fragment::{{stardate::trekguide_f2::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::trekconnection::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::trekguide_x11::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::startrek_tng2323::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::startrek_tng2322::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::startrek_tos2265::<datetime>::<format>}}}}
+ *     {{fragment::{{stardate::startrek_beyond::<datetime>::<format>}}}}
  */
 class InsertTagsListener
 {
@@ -104,7 +106,7 @@ class InsertTagsListener
                     ->get('monolog.logger.contao')
                     ->log(LogLevel::ERROR,
                         $message,
-                        ['contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', TL_ERROR)])
+                        ['contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', ContaoContext::ERROR)])
                 ;
 
                 return $message;
@@ -126,6 +128,8 @@ class InsertTagsListener
                 return $this->calculateStardateTng2322($date);
             case 'startrek_tos2265':
                 return $this->calculateStardateTos2265($date);
+            case 'startrek_beyond':
+                return $this->calculateStardateBeyond($date);
         }
 
         return false;
@@ -147,7 +151,7 @@ class InsertTagsListener
         // fictional Stardate
         // Sternzeit 00000.0 beginnt am 14.07.1946, um 18:00 Uhr.
         $date1 = mktime(18, 0, 0, 7, 14, 1946);
-        $date2 = $datetime->getTimestamp(); //time();
+        $date2 = $datetime->getTimestamp(); // time();
         $diffdays = (($date2 - $date1) / 86400);
         $strDate = round($diffdays / 365.25 * 1000, 1);
 
@@ -160,8 +164,8 @@ class InsertTagsListener
         // adapted in php
         $SDYear = 40000 + (($datetime->format('Y') - 1987) * 1000);
         $YearStartTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y'));
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $Days = ($NowTime - $YearStartTime) / 86400;
         if ($Days >= 183) {
@@ -186,8 +190,8 @@ class InsertTagsListener
         $SDYear = (int) $datetime->format('Y');
         $YearStartTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y'));
         $YearEndTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y') + 1);
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $Days = ($NowTime - $YearStartTime) / 86400;
         $DaysH = round($Days * 100 / (($YearEndTime - $YearStartTime) / 86400), 0);
@@ -209,8 +213,8 @@ class InsertTagsListener
         $YearStartTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y'));
         $YearEndTime = mktime(0, 0, 0, 1, 1, (int) $datetime->format('Y') + 1);
         $DaysInYear = ($YearEndTime - $YearStartTime) / 86400;
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $Days = ($NowTime - $YearStartTime) / 86400;
         $MinutesPart = (int) $datetime->format('i') / 60;
@@ -226,8 +230,8 @@ class InsertTagsListener
         // nach http://trekguide.com/Stardates.htm#TNG
         // Stardate 00000.0 began on May 25, 2322, at 00:00 hours.
         $SDBegin = mktime(0, 0, 0, 5, 25, 2322); // May 25, 2322 00:00:00
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $DiffTime = $NowTime - $SDBegin;
         $SDYear = $DiffTime / (60 * 60 * 24 * 365.2422);
@@ -241,8 +245,8 @@ class InsertTagsListener
         // http://trekguide.com/Stardates.htm#TOS
         // Stardate 0000.0 began on May 1, 2265 00:00:00
         $SDBegin = mktime(0, 0, 0, 5, 1, 2265); // May 1, 2265 00:00:00
-        //[$usec, $sec] = explode(' ', microtime());
-        //$NowTime = ((float) $usec + (float) $sec);
+        // [$usec, $sec] = explode(' ', microtime());
+        // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $DiffTime = $NowTime - $SDBegin;
         $SDYear = $DiffTime / (60 * 60 * 24 * 365.2422);
@@ -250,5 +254,17 @@ class InsertTagsListener
         $SDYear = round((floor($SDYear * 100000) / 100) + 0.31, 2); // 0.31 kleine Korrektur noetig zum Javascript Original, damit beide gleich
 
         return number_format($SDYear, 2, '.', ''); // 3.4 to 3.40
+    }
+
+    private function calculateStardateBeyond(\DateTimeInterface $datetime)
+    {
+        // In "Star Trek" to "Star Trek Beyond" a new calculation was introduced.
+        // From the respective year with the corresponding day of the year together.
+        // The stardate 2257.42 corresponds to the 42nd day of the year 2257.
+        $SDYear = $datetime->format('Y');
+        // 1.1.YYYY is day 0
+        $SDDay = 1 + (int) date("z", mktime(0, 0, 0, (int) $datetime->format('m'), (int) $datetime->format('d'), (int) $datetime->format('Y')));
+        
+        return $SDYear .'.'. (string) $SDDay;
     }
 }

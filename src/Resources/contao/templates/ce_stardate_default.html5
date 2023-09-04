@@ -1,9 +1,0 @@
-<?php $this->extend('block_unsearchable');?>
-<?php $this->block('content'); ?>
-
-<?php if ($this->stardateTag): ?>
-<span class="calculate">Stardate for <?= str_replace('|uncached','',trim($this->stardateTag,'{}')); ?>:
-	<?= $this->stardateTag; ?></span>
-<?php endif; ?>
-
-<?php $this->endblock(); ?>

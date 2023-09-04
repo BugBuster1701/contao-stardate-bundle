@@ -1,0 +1,11 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
+{% block content %}
+    {% if as_editor_view %}
+            <span class="calculate">{{ wildcard }}</span>
+    {% else %}
+        {% if stardateTag %}
+            <span class="calculate">{{ stardateTag }}</span>
+        {% endif %}
+    {% endif %}
+{% endblock %}

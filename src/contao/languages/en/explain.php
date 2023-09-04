@@ -13,3 +13,5 @@ $GLOBALS['TL_LANG']['XPL']['calculateStardate_help']['6']['0'] = 'Star Trek TNG 
 $GLOBALS['TL_LANG']['XPL']['calculateStardate_help']['6']['1'] = 'TNG Variante 2 by TrekGuide.com, negative result for present time.<br>Stardate 00000.0 starts on 25.05.2322, at 00:00 a.m.';
 $GLOBALS['TL_LANG']['XPL']['calculateStardate_help']['7']['0'] = 'Star Trek TOS Stardate (2265)';
 $GLOBALS['TL_LANG']['XPL']['calculateStardate_help']['7']['1'] = 'TOS Variante by TrekGuide.com, negative result for present time.<br>Stardate 00000.0 starts on 01.05.2265, at 00:00 a.m.';
+$GLOBALS['TL_LANG']['XPL']['calculateStardate_help']['8']['0'] = 'Star Trek XIII variant';
+$GLOBALS['TL_LANG']['XPL']['calculateStardate_help']['8']['1'] = 'Star Trek XIII variant, positive result for present time.<br>YYYY.DD : DD is day of the year';

@@ -20,3 +20,4 @@ $GLOBALS['TL_LANG']['tl_content']['trekguide_x11']    = 'ST XI variant by TrekGu
 $GLOBALS['TL_LANG']['tl_content']['startrek_tng2323'] = 'Star Trek TNG Stardate by lcars.org.uk (2323)';
 $GLOBALS['TL_LANG']['tl_content']['startrek_tng2322'] = 'Star Trek TNG Stardate by TrekGuide.com (2322)';
 $GLOBALS['TL_LANG']['tl_content']['startrek_tos2265'] = 'Star Trek TOS Stardate by TrekGuide.com (2265)';
+$GLOBALS['TL_LANG']['tl_content']['startrek_beyond']  = 'Star Trek XIII variant';
