@@ -7,7 +7,7 @@
 
 ## About
 
-A Contao 4 extension for the calculation of the Star Trek Stardate.
+A Contao extension for the calculation of the Star Trek Stardate.
 
 ## Installation
 
