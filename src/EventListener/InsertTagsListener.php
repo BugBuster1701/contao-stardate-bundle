@@ -3,13 +3,15 @@
 declare(strict_types=1);
 
 /*
- * This file is part of a BugBuster Contao Bundle
+ * This file is part of a BugBuster Contao Bundle.
  *
- * @copyright  Glen Langer 2019..2023 <http://contao.ninja>
+ * @copyright  Glen Langer 2023 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
- * @license    LGPL-3.0-or-later
- * @see        https://github.com/BugBuster1701/contao-stardate-bundle
+ * @license LGPL-3.0-or-later
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ * @link https://github.com/BugBuster1701/contao-stardate-bundle
  */
 
 namespace BugBuster\StardateBundle\EventListener;
@@ -17,6 +19,7 @@ namespace BugBuster\StardateBundle\EventListener;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\CoreBundle\Monolog\ContaoContext;
 use Contao\StringUtil;
+use Contao\System;
 use Psr\Log\LogLevel;
 
 /**
@@ -99,14 +102,17 @@ class InsertTagsListener
 
         if (!empty($datetime) && !empty($datetimeformat)) {
             $date = \DateTime::createFromFormat($datetimeformat, $datetime);
+
             if (false === $date) {
-                \Contao\System::loadLanguageFile('tl_stardate_event');
+                System::loadLanguageFile('tl_stardate_event');
                 $message = sprintf($GLOBALS['TL_LANG']['tl_stardate_event']['error_datetime'], $datetimeformat, $datetime);
-                \Contao\System::getContainer()
+                System::getContainer()
                     ->get('monolog.logger.contao')
-                    ->log(LogLevel::ERROR,
+                    ->log(
+                        LogLevel::ERROR,
                         $message,
-                        ['contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', ContaoContext::ERROR)])
+                        ['contao' => new ContaoContext('Stardate Bundle InsertTagsListener generateReplacement', ContaoContext::ERROR)],
+                    )
                 ;
 
                 return $message;
@@ -152,7 +158,7 @@ class InsertTagsListener
         // Sternzeit 00000.0 beginnt am 14.07.1946, um 18:00 Uhr.
         $date1 = mktime(18, 0, 0, 7, 14, 1946);
         $date2 = $datetime->getTimestamp(); // time();
-        $diffdays = (($date2 - $date1) / 86400);
+        $diffdays = ($date2 - $date1) / 86400;
         $strDate = round($diffdays / 365.25 * 1000, 1);
 
         return number_format($strDate, 1, '.', ''); // 3 to 3.0
@@ -168,12 +174,14 @@ class InsertTagsListener
         // $NowTime = ((float) $usec + (float) $sec);
         $NowTime = (float) $datetime->format('U.u');
         $Days = ($NowTime - $YearStartTime) / 86400;
+
         if ($Days >= 183) {
-            $SDYear = $SDYear + 1000;
-            $SDDays = ($Days * (1000 / 365)) - 500;
+            $SDYear += 1000;
+            $SDDays = ($Days * 1000 / 365) - 500;
         }
+
         if ($Days < 183) {
-            $SDDays = 500 + ($Days * (1000 / 365));
+            $SDDays = 500 + ($Days * 1000 / 365);
         }
         $strDate = round($SDYear + $SDDays, 1);
 
@@ -195,9 +203,11 @@ class InsertTagsListener
         $NowTime = (float) $datetime->format('U.u');
         $Days = ($NowTime - $YearStartTime) / 86400;
         $DaysH = round($Days * 100 / (($YearEndTime - $YearStartTime) / 86400), 0);
+
         if ($DaysH < 10) {
             return $SDYear.'.0'.$DaysH;
         }
+
         if (100 === $DaysH) {
             return $SDYear.'.99';
         }
@@ -250,7 +260,7 @@ class InsertTagsListener
         $NowTime = (float) $datetime->format('U.u');
         $DiffTime = $NowTime - $SDBegin;
         $SDYear = $DiffTime / (60 * 60 * 24 * 365.2422);
-        $SDYear = $SDYear * 2.7113654892;
+        $SDYear *= 2.7113654892;
         $SDYear = round((floor($SDYear * 100000) / 100) + 0.31, 2); // 0.31 kleine Korrektur noetig zum Javascript Original, damit beide gleich
 
         return number_format($SDYear, 2, '.', ''); // 3.4 to 3.40
@@ -263,8 +273,8 @@ class InsertTagsListener
         // The stardate 2257.42 corresponds to the 42nd day of the year 2257.
         $SDYear = $datetime->format('Y');
         // 1.1.YYYY is day 0
-        $SDDay = 1 + (int) date("z", mktime(0, 0, 0, (int) $datetime->format('m'), (int) $datetime->format('d'), (int) $datetime->format('Y')));
-        
-        return $SDYear .'.'. (string) $SDDay;
+        $SDDay = 1 + (int) date('z', mktime(0, 0, 0, (int) $datetime->format('m'), (int) $datetime->format('d'), (int) $datetime->format('Y')));
+
+        return $SDYear.'.'.(string) $SDDay;
     }
 }
