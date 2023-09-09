@@ -58,7 +58,7 @@
 		}
 	},
 	"scripts": {
-        "cs-fixer": "@php vendor/bin/ecs check src/ tests/ --config ecs.php --fix --ansi",
+        "cs-fixer": "@php vendor/bin/ecs check src/ tests/ --config ecs.php --clear-cache --fix --ansi",
         "unit-tests": "@php vendor/bin/phpunit -c phpunit.xml.dist --testdox --colors"
     }
 }
