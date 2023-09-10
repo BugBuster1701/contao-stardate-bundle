@@ -2,12 +2,24 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of a BugBuster Contao Bundle.
+ *
+ * @copyright  Glen Langer 2023 <http://contao.ninja>
+ * @author     Glen Langer (BugBuster)
+ * @package    Contao Stardate Bundle
+ * @license LGPL-3.0-or-later
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ * @link https://github.com/BugBuster1701/contao-stardate-bundle
+ */
+
 namespace BugBuster\StardateBundle\Controller\ContentElement;
 
-use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\ContentModel;
-use Contao\System;
+use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\Twig\FragmentTemplate;
+use Contao\System;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -15,10 +27,11 @@ class StardateController extends AbstractContentElementController
 {
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
-        if (System::getContainer()->get('contao.routing.scope_matcher')
-	        ->isBackendRequest(System::getContainer()->get('request_stack')
-        	->getCurrentRequest() ?? Request::create(''))) 
-        {
+        if (
+            System::getContainer()->get('contao.routing.scope_matcher')
+                ->isBackendRequest(System::getContainer()->get('request_stack')
+                    ->getCurrentRequest() ?? Request::create(''))
+        ) {
             $calc = $GLOBALS['TL_LANG']['tl_content'][$model->calculateStardate];
             $template->set('wildcard', '=/\= '.$calc.' =/\=');
 
@@ -50,6 +63,7 @@ class StardateController extends AbstractContentElementController
             case 'startrek_beyond':
                 $template->set('stardateTag', '{{fragment::{{stardate::startrek_beyond}}}}');
                 break;
+
             default:
                 $template->set('stardateTag', '00000.00');
                 break;

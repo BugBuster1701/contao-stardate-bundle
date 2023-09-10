@@ -1,0 +1,79 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2019-08-24T23:54:48+02:00" original="tl_content" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_content.trekguide_f1">
+        
+        <source>Fictional Stardate by TrekGuide.com (Today)</source>
+        
+        <target>Fiktive Sternzeit nach TrekGuide.com (Today)</target>
+      </trans-unit>
+      <trans-unit id="tl_content.trekguide_f2">
+        
+        <source>Fictional Stardate by TrekGuide.com (1946)</source>
+        
+        <target>Fiktive Sternzeit nach TrekGuide.com (1946)</target>
+      </trans-unit>
+      <trans-unit id="tl_content.trekconnection">
+        
+        <source>Fictional Stardate by TrekConnection.com</source>
+        
+        <target>Fiktive Sternzeit nach TrekConnection.com</target>
+      </trans-unit>
+      <trans-unit id="tl_content.trekguide_x11">
+        
+        <source>ST XI variant by TrekGuide.com</source>
+        
+        <target>ST XI Variante nach TrekGuide.com</target>
+      </trans-unit>
+      <trans-unit id="tl_content.startrek_tng2323">
+        
+        <source>Star Trek TNG Stardate by lcars.org.uk (2323)</source>
+        
+        <target>Star Trek TNG Sternzeit nach lcars.org.uk (2323)</target>
+      </trans-unit>
+      <trans-unit id="tl_content.startrek_tng2322">
+        
+        <source>Star Trek TNG Stardate by TrekGuide.com (2322)</source>
+        
+        <target>Star Trek TNG Sternzeit nach TrekGuide.com (2322)</target>
+      </trans-unit>
+      <trans-unit id="tl_content.startrek_tos2265">
+        
+        <source>Star Trek TOS Stardate by TrekGuide.com (2265)</source>
+        
+        <target>Star Trek TOS Sternzeit nach TrekGuide.com (2265)</target>
+      </trans-unit>
+      <trans-unit id="tl_content.startrek_beyond">
+        
+        <source>Star Trek XIII variant</source>
+        
+        <target>Star Trek XIII Variante</target>
+      </trans-unit>
+
+      <trans-unit id="tl_content.calculateStardate.0">
+        
+        <source>Calculation</source>
+        
+        <target>Berechnung</target>
+      </trans-unit>
+      <trans-unit id="tl_content.calculateStardate.1">
+        
+        <source>Select the type of the calculation</source>
+        
+        <target>Art der Berechnung auswählen</target>
+      </trans-unit>
+      <trans-unit id="tl_content.calculateStardate_legend">
+        
+        <source>Types of the stardate calculation</source>
+        
+        <target>Berechnungsarten</target>
+      </trans-unit>
+      <trans-unit id="tl_content.stardate_default">
+        
+        <source>Please select</source>
+        
+        <target>Bitte auswählen</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

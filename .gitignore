@@ -11,7 +11,7 @@ composer.lock
 .settings/
 
 # Transifex
-/.tx/
+/old_.tx/
 
 # phpunit
 .phpunit.result.cache

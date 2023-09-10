@@ -24,8 +24,8 @@
 	},
 	"require-dev": {
 		"contao/manager-plugin": "^2.0",
-		"friendsofphp/php-cs-fixer": "^3.10",
-		"phpunit/phpunit": "^8.5 || ^9.3"
+		"phpunit/phpunit": "^8.5 || ^9.3",
+		"contao/easy-coding-standard": "^6.5"
 	},
 	"conflict": {
 		"contao/manager-plugin": "<2.0 || >=3.0"
@@ -53,7 +53,12 @@
 		"allow-plugins": {
 			"contao-components/installer": true,
 			"php-http/discovery": true,
-			"contao/manager-plugin": true
+			"contao/manager-plugin": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
-	}
+	},
+	"scripts": {
+        "cs-fixer": "@php vendor/bin/ecs check src/ tests/ --config ecs.php --clear-cache --fix --ansi",
+        "unit-tests": "@php vendor/bin/phpunit -c phpunit.xml.dist --testdox --colors"
+    }
 }

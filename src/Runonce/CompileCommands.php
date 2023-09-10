@@ -3,17 +3,20 @@
 declare(strict_types=1);
 
 /*
- * This file is part of a BugBuster Contao Bundle
+ * This file is part of a BugBuster Contao Bundle.
  *
- * @copyright  Glen Langer 2019..2023 <http://contao.ninja>
+ * @copyright  Glen Langer 2023 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
- * @license    LGPL-3.0-or-later
- * @see        https://github.com/BugBuster1701/contao-stardate-bundle
+ * @license LGPL-3.0-or-later
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ * @link https://github.com/BugBuster1701/contao-stardate-bundle
  */
 
 namespace BugBuster\StardateBundle\Runonce;
 
+use Contao\Database;
 use Contao\StringUtil;
 
 /**
@@ -50,9 +53,7 @@ class CompileCommands
             if (\is_array($return['ALTER_CHANGE'])) {
                 $return['ALTER_CHANGE'] = array_filter(
                     $return['ALTER_CHANGE'],
-                    function ($sql) {
-                        return !str_contains($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate');
-                    }
+                    static fn ($sql) => !str_contains($sql, 'ALTER TABLE tl_content CHANGE calculate calculateStardate'),
                 );
 
                 if (empty($return['ALTER_CHANGE'])) {
@@ -72,12 +73,15 @@ class CompileCommands
     public function runMigration200(array $definition): void
     {
         $migration = false;
-        if (\Contao\Database::getInstance()->tableExists('tl_content')) {
-            if (\Contao\Database::getInstance()->fieldExists('calculate', 'tl_content')
-            && !\Contao\Database::getInstance()->fieldExists('calculateStardate', 'tl_content')) {
-                \Contao\Database::getInstance()->execute("ALTER TABLE tl_content CHANGE calculate calculatestardate VARCHAR(255) DEFAULT '' NOT NULL");
-                \Contao\Database::getInstance()->prepare("UPDATE `tl_content` SET `type`='stardate' WHERE `type`=?")
-                                                ->execute('content_stardate')
+
+        if (Database::getInstance()->tableExists('tl_content')) {
+            if (
+                Database::getInstance()->fieldExists('calculate', 'tl_content')
+            && !Database::getInstance()->fieldExists('calculateStardate', 'tl_content')
+            ) {
+                Database::getInstance()->execute("ALTER TABLE tl_content CHANGE calculate calculatestardate VARCHAR(255) DEFAULT '' NOT NULL");
+                Database::getInstance()->prepare("UPDATE `tl_content` SET `type`='stardate' WHERE `type`=?")
+                    ->execute('content_stardate')
                 ;
                 $migration = true;
             }
@@ -86,8 +90,8 @@ class CompileCommands
         if (true === $migration) {
             // Protokoll
             $strText = 'Stardate-Bundle has been migrated';
-            \Contao\Database::getInstance()->prepare('INSERT INTO `tl_log` (tstamp, source, action, username, text, func, browser) VALUES(?, ?, ?, ?, ?, ?, ?)')
-                            ->execute(time(), 'BE', 'CONFIGURATION', '', StringUtil::specialchars($strText), 'Stardate Bundle Migration', '127.0.0.1', 'NoBrowser')
+            Database::getInstance()->prepare('INSERT INTO `tl_log` (tstamp, source, action, username, text, func, browser) VALUES(?, ?, ?, ?, ?, ?, ?)')
+                ->execute(time(), 'BE', 'CONFIGURATION', '', StringUtil::specialchars($strText), 'Stardate Bundle Migration', '127.0.0.1', 'NoBrowser')
             ;
         }
     }

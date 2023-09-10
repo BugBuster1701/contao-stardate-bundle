@@ -1,0 +1,70 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2019-07-14T15:29:20+02:00" original="explain" source-language="en" target-language="en">
+    <body>
+      <trans-unit id="XPL.calculateStardate_help.0.0">
+        
+        <source>Fictional Stardate by TrekGuide.com (Today)</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.0.1">
+        
+        <source>Fictional Stardate by TrekGuide.com, positive result for present time.&lt;br&gt;YYMM.DD : YY = YYYY-1900</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.2.0">
+        
+        <source>Fictional Stardate by TrekGuide.com (1946)</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.2.1">
+        
+        <source>Fictional Stardate by TrekGuide.com, positive result for present time.&lt;br&gt;Stardate 00000.0 starts on 14.07.1946, at 6:00 p.m.</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.3.0">
+        
+        <source>Fictional Stardate by TrekConnection.com</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.3.1">
+        
+        <source>Stardate variant by TrekConnection.com, positive result for present time.</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.4.0">
+        
+        <source>ST XI variant by TrekGuide.com</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.4.1">
+        
+        <source>ST XI variant by TrekGuide.com, positive result for present time.&lt;br&gt;YYYY.xx : YYYY current year, xx 100. part of the year</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.5.0">
+        
+        <source>Star Trek TNG Stardate (2323)</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.5.1">
+        
+        <source>TNG Variante 1 by lcars.org.uk, negative result for present time.&lt;br&gt;Stardate 00000.0 starts on 01.01.2323, at at 00:00 a.m.</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.6.0">
+        
+        <source>Star Trek TNG Stardate (2322)</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.6.1">
+        
+        <source>TNG Variante 2 by TrekGuide.com, negative result for present time.&lt;br&gt;Stardate 00000.0 starts on 25.05.2322, at 00:00 a.m.</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.7.0">
+        
+        <source>Star Trek TOS Stardate (2265)</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.7.1">
+        
+        <source>TOS Variante by TrekGuide.com, negative result for present time.&lt;br&gt;Stardate 00000.0 starts on 01.05.2265, at 00:00 a.m.</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.8.0">
+        
+        <source>Star Trek XIII variant</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.8.1">
+        
+        <source>Star Trek XIII variant, positive result for present time.&lt;br&gt;YYYY.DD : DD is day of the year</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
