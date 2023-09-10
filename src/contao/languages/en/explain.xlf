@@ -57,6 +57,14 @@
         
         <source>TOS Variante by TrekGuide.com, negative result for present time.&lt;br&gt;Stardate 00000.0 starts on 01.05.2265, at 00:00 a.m.</source>
       </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.8.0">
+        
+        <source>Star Trek XIII variant</source>
+      </trans-unit>
+      <trans-unit id="XPL.calculateStardate_help.8.1">
+        
+        <source>Star Trek XIII variant, positive result for present time.&lt;br&gt;YYYY.DD : DD is day of the year</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

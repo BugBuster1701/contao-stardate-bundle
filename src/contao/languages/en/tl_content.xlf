@@ -29,6 +29,11 @@
         
         <source>Star Trek TOS Stardate by TrekGuide.com (2265)</source>
       </trans-unit>
+      <trans-unit id="tl_content.startrek_beyond">
+        
+        <source>Star Trek XIII variant</source>
+      </trans-unit>
+
       <trans-unit id="tl_content.calculateStardate.0">
         
         <source>Calculation</source>
