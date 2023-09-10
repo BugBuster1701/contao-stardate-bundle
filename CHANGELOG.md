@@ -1,5 +1,18 @@
 # BugBuster's Contao Stardate Bundle
 
+## [1.3.2](https://github.com/BugBuster1701/contao-stardate-bundle/issues?q=milestone%3A%221.3.2%22+is%3Aclosed) (2023-09-10)
+
+### New features
+
+- [\#19](https://github.com/BugBuster1701/contao-stardate-bundle/issues/19) Sprachdateien nach xliff
+- [\#18](https://github.com/BugBuster1701/contao-stardate-bundle/issues/18) Add EasyCodingStandard configurations for Contao
+
+## [1.3.1](https://github.com/BugBuster1701/contao-stardate-bundle/issues?q=milestone%3A%221.3.1%22+is%3Aclosed) (2023-09-08)
+
+### New features
+
+- [\#17](https://github.com/BugBuster1701/contao-stardate-bundle/issues/17) Handbuch erneuern
+
 ## [1.3.0](https://github.com/BugBuster1701/contao-stardate-bundle/issues?q=milestone%3A%221.3.0%22+is%3Aclosed) (2023-09-04)
 
 ### New features
