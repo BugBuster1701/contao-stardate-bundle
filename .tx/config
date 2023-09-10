@@ -1,0 +1,43 @@
+[main]
+host = https://app.transifex.com
+
+[o:bugbuster:p:contao-stardate-bundle:r:master-explain]
+file_filter            = src/contao/languages/<lang>/explain.xlf
+source_file            = src/contao/languages/en/explain.xlf
+source_lang            = en
+type                   = XLIFF
+minimum_perc           = 0
+resource_name          = master-explain
+replace_edited_strings = false
+keep_translations      = false
+
+[o:bugbuster:p:contao-stardate-bundle:r:master-modules]
+file_filter            = src/contao/languages/<lang>/modules.xlf
+source_file            = src/contao/languages/en/modules.xlf
+source_lang            = en
+type                   = XLIFF
+minimum_perc           = 0
+resource_name          = master-modules
+replace_edited_strings = false
+keep_translations      = false
+
+[o:bugbuster:p:contao-stardate-bundle:r:master-tl_content]
+file_filter            = src/contao/languages/<lang>/tl_content.xlf
+source_file            = src/contao/languages/en/tl_content.xlf
+source_lang            = en
+type                   = XLIFF
+minimum_perc           = 0
+resource_name          = master-tl_content
+replace_edited_strings = false
+keep_translations      = false
+
+[o:bugbuster:p:contao-stardate-bundle:r:master-tl_stardate_event]
+file_filter            = src/contao/languages/<lang>/tl_stardate_event.xlf
+source_file            = src/contao/languages/en/tl_stardate_event.xlf
+source_lang            = en
+type                   = XLIFF
+minimum_perc           = 0
+resource_name          = master-tl_stardate_event
+replace_edited_strings = false
+keep_translations      = false
+
