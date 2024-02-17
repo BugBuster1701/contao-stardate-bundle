@@ -1,6 +1,10 @@
 # Contao Star Trek Stardate Bundle
 
-[![Latest Stable Version](https://poser.pugx.org/bugbuster/contao-stardate-bundle/v/stable.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) [![Total Downloads](https://poser.pugx.org/bugbuster/contao-stardate-bundle/downloads.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) [![Latest Unstable Version](https://poser.pugx.org/bugbuster/contao-stardate-bundle/v/unstable.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) [![License](https://poser.pugx.org/bugbuster/contao-stardate-bundle/license.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle)
+[![Latest Stable Version](https://poser.pugx.org/bugbuster/contao-stardate-bundle/v/stable.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) 
+![Contao Version](https://img.shields.io/badge/Contao-5.2+-orange) ![Contao Version](https://img.shields.io/badge/Contao-4.13-orange) 
+[![Total Downloads](https://poser.pugx.org/bugbuster/contao-stardate-bundle/downloads.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) 
+[![Latest Unstable Version](https://poser.pugx.org/bugbuster/contao-stardate-bundle/v/unstable.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) 
+[![License](https://poser.pugx.org/bugbuster/contao-stardate-bundle/license.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3969336bfb5540918abddbb399e58b7d)](https://www.codacy.com/app/BugBuster1701/contao-stardate-bundle?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BugBuster1701/contao-stardate-bundle&amp;utm_campaign=Badge_Grade)
 
@@ -8,6 +12,9 @@
 ## About
 
 A Contao extension for the calculation of the Star Trek Stardate.
+
+## Notice
+For Contao 4.13 please install version 1.2.x.
 
 ## Installation
 
