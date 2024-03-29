@@ -6,8 +6,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/bugbuster/contao-stardate-bundle/v/unstable.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) 
 [![License](https://poser.pugx.org/bugbuster/contao-stardate-bundle/license.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3969336bfb5540918abddbb399e58b7d)](https://www.codacy.com/app/BugBuster1701/contao-stardate-bundle?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BugBuster1701/contao-stardate-bundle&amp;utm_campaign=Badge_Grade)
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3969336bfb5540918abddbb399e58b7d)](https://app.codacy.com/gh/BugBuster1701/contao-stardate-bundle/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## About
 
