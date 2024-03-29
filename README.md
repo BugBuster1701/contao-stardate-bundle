@@ -3,7 +3,6 @@
 [![Latest Stable Version](https://poser.pugx.org/bugbuster/contao-stardate-bundle/v/stable.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) 
 ![Contao Version](https://img.shields.io/badge/Contao-5.2+-orange) ![Contao Version](https://img.shields.io/badge/Contao-4.13-orange) 
 [![Total Downloads](https://poser.pugx.org/bugbuster/contao-stardate-bundle/downloads.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) 
-[![Latest Unstable Version](https://poser.pugx.org/bugbuster/contao-stardate-bundle/v/unstable.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle) 
 [![License](https://poser.pugx.org/bugbuster/contao-stardate-bundle/license.svg)](https://packagist.org/packages/bugbuster/contao-stardate-bundle)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/3969336bfb5540918abddbb399e58b7d)](https://app.codacy.com/gh/BugBuster1701/contao-stardate-bundle/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
