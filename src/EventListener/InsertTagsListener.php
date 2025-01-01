@@ -216,7 +216,7 @@ class InsertTagsListener
         $MinutesPart = (int) $datetime->format('i') / 60;
         $HoursPart = ((int) $datetime->format('H') + $MinutesPart) / 24;
         $SDMonth = round((floor($Days) + $HoursPart) / $DaysInYear * 1000, 2);
-        $YM = $SDYear.$SDMonth;
+        $YM = $SDYear * 1000 + $SDMonth;
 
         return number_format((float) $YM, 2, '.', '');
     }
