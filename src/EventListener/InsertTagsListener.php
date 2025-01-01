@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle.
  *
- * @copyright  Glen Langer 2023 <http://contao.ninja>
+ * @copyright  Glen Langer 2025 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Stardate Bundle
  * @license LGPL-3.0-or-later
@@ -230,7 +230,7 @@ class InsertTagsListener
         $MinutesPart = (int) $datetime->format('i') / 60;
         $HoursPart = ((int) $datetime->format('H') + $MinutesPart) / 24;
         $SDMonth = round((floor($Days) + $HoursPart) / $DaysInYear * 1000, 2);
-        $YM = $SDYear.$SDMonth;
+        $YM = $SDYear * 1000 + $SDMonth;
 
         return number_format((float) $YM, 2, '.', '');
     }
