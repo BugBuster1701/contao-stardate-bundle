@@ -1,13 +1,5 @@
 services:
     _defaults: { autowire: true, autoconfigure: true, public: false }
-    _instanceof:
-        Contao\CoreBundle\Framework\FrameworkAwareInterface:
-            calls:
-                - ["setFramework", ["@contao.framework"]]
-
-        Symfony\Component\DependencyInjection\ContainerAwareInterface:
-            calls:
-                - ["setContainer", ["@service_container"]]
 
     BugBuster\StardateBundle\Controller\ContentElement\StardateController:
         public: true

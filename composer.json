@@ -19,8 +19,8 @@
 		"forum":"https://community.contao.org/de/forumdisplay.php?119-Sonstige-Erweiterungen"
 	},
 	"require":{
-		"php": "^8.1",
-		"contao/core-bundle": "^5.2"
+		"php": "^8.3",
+		"contao/core-bundle": "^5.3"
 	},
 	"require-dev": {
 		"contao/manager-plugin": "^2.0",
