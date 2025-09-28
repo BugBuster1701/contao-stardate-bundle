@@ -40,7 +40,7 @@
 			"transifex": {
 				"project": "contao-stardate-bundle",
 				"prefix": "master-",
-				"languages_cto": "src/contao/languages",
+				"languages_cto": "contao/languages",
 				"languages_tx": ".tx"
 			}
 		},
