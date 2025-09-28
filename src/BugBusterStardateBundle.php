@@ -16,8 +16,8 @@ declare(strict_types=1);
 
 namespace BugBuster\StardateBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
-class BugBusterStardateBundle extends Bundle
+class BugBusterStardateBundle extends AbstractBundle
 {
 }
