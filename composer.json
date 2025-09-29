@@ -44,9 +44,6 @@
 				"languages_tx": ".tx"
 			}
 		},
-		"branch-alias": {
-			"dev-master": "1.3.x-dev"
-		},
 		"contao-manager-plugin": "BugBuster\\StardateBundle\\ContaoManager\\Plugin"
 	},
 	"config": {
