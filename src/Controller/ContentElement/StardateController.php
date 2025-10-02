@@ -25,6 +25,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class StardateController extends AbstractContentElementController
 {
+    /**
+     * Render the content element
+     * 
+     * @param FragmentTemplate $template
+     * @param ContentModel $model
+     * @param Request $request
+     * @return Response
+     */
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         if (
@@ -32,12 +40,13 @@ class StardateController extends AbstractContentElementController
                 ->isBackendRequest(System::getContainer()->get('request_stack')
                     ->getCurrentRequest() ?? Request::create(''))
         ) {
+            /** @phpstan-ignore property.notFound */
             $calc = $GLOBALS['TL_LANG']['tl_content'][$model->calculateStardate];
             $template->set('wildcard', '=/\= '.$calc.' =/\=');
 
             return $template->getResponse();
         }
-
+        /** @phpstan-ignore property.notFound */
         switch ($model->calculateStardate) {
             case 'trekguide_f1':
                 $template->set('stardateTag', '{{fragment::{{stardate::trekguide_f1}}}}');

@@ -14,4 +14,6 @@ parameters:
         - %currentWorkingDirectory%/tests
 
     ignoreErrors:
-        - '#has parameter \$config with no value type specified in iterable type array#'
+        - identifier: missingType.iterableValue
+        # tests/BugBusterStardateBundleTest.php
+        - identifier: method.alreadyNarrowedType

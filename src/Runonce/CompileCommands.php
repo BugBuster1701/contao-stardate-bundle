@@ -33,7 +33,7 @@ class CompileCommands
      *
      * @return array Array of SQL statements
      */
-    public function runMigration(array $definition)
+    public function runMigration(array $definition): array
     {
         $this->runMigration200($definition);
 
@@ -47,7 +47,7 @@ class CompileCommands
      *
      * @return array Array of SQL statements
      */
-    public function manipulateSqlCommands($return)
+    public function manipulateSqlCommands(array $return): array
     {
         if (isset($return['ALTER_CHANGE'])) {
             if (\is_array($return['ALTER_CHANGE'])) {

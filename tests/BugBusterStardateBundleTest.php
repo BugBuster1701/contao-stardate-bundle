@@ -25,6 +25,6 @@ class BugBusterStardateBundleTest extends TestCase
     {
         $bundle = new BugBusterStardateBundle();
 
-        $this->assertInstanceOf('BugBuster\StardateBundle\BugBusterStardateBundle', $bundle);
+        $this->assertInstanceOf(BugBusterStardateBundle::class, $bundle);
     }
 }

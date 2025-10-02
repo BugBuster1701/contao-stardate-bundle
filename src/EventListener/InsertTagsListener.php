@@ -63,7 +63,7 @@ class InsertTagsListener
      *
      * @return string|false
      */
-    public function onReplaceInsertTags(string $tag, bool $useCache, $cacheValue, array $flags)
+    public function onReplaceInsertTags(string $tag, bool $useCache, string $cacheValue, array $flags)
     {
         static $supportedTags = [
             'stardate',
@@ -141,7 +141,7 @@ class InsertTagsListener
         return false;
     }
 
-    private function calculateStardateTrekguide_f1(\DateTimeInterface $datetime)
+    private function calculateStardateTrekguide_f1(\DateTimeInterface $datetime): string
     {
         // http://trekguide.com/Stardates.htm#Today (1)
         // fictional Stardate that corresponds to "today's" date
@@ -151,7 +151,7 @@ class InsertTagsListener
         return $Year.$datetime->format('m').'.'.$datetime->format('d');
     }
 
-    private function calculateStardateTrekguide_f2(\DateTimeInterface $datetime)
+    private function calculateStardateTrekguide_f2(\DateTimeInterface $datetime): string
     {
         // http://trekguide.com/Stardates.htm#Today (3)
         // fictional Stardate
@@ -164,8 +164,9 @@ class InsertTagsListener
         return number_format($strDate, 1, '.', ''); // 3 to 3.0
     }
 
-    private function calculateStardateTrekconnection(\DateTimeInterface $datetime)
+    private function calculateStardateTrekconnection(\DateTimeInterface $datetime): string
     {
+        $SDDays = 0;
         // Javascript made by Heath Coop of TrekConnection.com
         // adapted in php
         $SDYear = 40000 + (($datetime->format('Y') - 1987) * 1000);
@@ -188,7 +189,7 @@ class InsertTagsListener
         return number_format($strDate, 1, '.', ''); // 3 to 3.0
     }
 
-    private function calculateStardateTrekguideX11(\DateTimeInterface $datetime)
+    private function calculateStardateTrekguideX11(\DateTimeInterface $datetime): string
     {
         // Stardate format in Star Trek XI
         // dates may be expressed in YYYY.xx format, where YYYY is the actual four-digit year,
@@ -208,14 +209,14 @@ class InsertTagsListener
             return $SDYear.'.0'.$DaysH;
         }
 
-        if (100 === $DaysH) {
+        if (100 == $DaysH) {
             return $SDYear.'.99';
         }
 
         return $SDYear.'.'.$DaysH;
     }
 
-    private function calculateStardateTng2323(\DateTimeInterface $datetime)
+    private function calculateStardateTng2323(\DateTimeInterface $datetime): string
     {
         // nach  http://www.lcars.org.uk/Stardate.htm
         // Stardate 00000.0 began on January 01, 2323, at 00:00 hours.
@@ -235,7 +236,7 @@ class InsertTagsListener
         return number_format((float) $YM, 2, '.', '');
     }
 
-    private function calculateStardateTng2322(\DateTimeInterface $datetime)
+    private function calculateStardateTng2322(\DateTimeInterface $datetime): string
     {
         // nach http://trekguide.com/Stardates.htm#TNG
         // Stardate 00000.0 began on May 25, 2322, at 00:00 hours.
@@ -250,7 +251,7 @@ class InsertTagsListener
         return number_format($SDYear, 2, '.', ''); // 3.4 to 3.40
     }
 
-    private function calculateStardateTos2265(\DateTimeInterface $datetime)
+    private function calculateStardateTos2265(\DateTimeInterface $datetime): string
     {
         // http://trekguide.com/Stardates.htm#TOS
         // Stardate 0000.0 began on May 1, 2265 00:00:00
@@ -266,7 +267,7 @@ class InsertTagsListener
         return number_format($SDYear, 2, '.', ''); // 3.4 to 3.40
     }
 
-    private function calculateStardateBeyond(\DateTimeInterface $datetime)
+    private function calculateStardateBeyond(\DateTimeInterface $datetime): string
     {
         // In "Star Trek" to "Star Trek Beyond" a new calculation was introduced.
         // From the respective year with the corresponding day of the year together.
