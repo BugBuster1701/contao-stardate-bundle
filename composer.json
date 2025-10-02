@@ -20,12 +20,17 @@
 	},
 	"require":{
 		"php": "^8.3",
-		"contao/core-bundle": "^5.3"
+		"contao/core-bundle": "^5.3",
+		"psr/log": "^1.1 || 2.0 || ^3.0",
+		"symfony/dependency-injection": "^6.2 || ^7.0",
+		"symfony/http-foundation": "^6.4 || ^7.0",
+		"symfony/http-kernel": "^6.2 || ^7.0"
 	},
 	"require-dev": {
 		"contao/manager-plugin": "^2.0",
 		"phpunit/phpunit": "^8.5 || ^9.3",
-		"contao/easy-coding-standard": "^6.5"
+		"contao/easy-coding-standard": "^6.5",
+        "shipmonk/composer-dependency-analyser": "^1.8"
 	},
 	"conflict": {
 		"contao/manager-plugin": "<2.0 || >=3.0"
@@ -55,6 +60,7 @@
 		}
 	},
 	"scripts": {
+		"depcheck": "@php vendor/bin/composer-dependency-analyser --config=depcheck.php",
 		"cs-fixer": "@php vendor/bin/ecs check src/ tests/ --config ecs.php --clear-cache --fix --ansi",
 		"unit-tests": "@php vendor/bin/phpunit -c phpunit.xml.dist --testdox --colors"
     }
