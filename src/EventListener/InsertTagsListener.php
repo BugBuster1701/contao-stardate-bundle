@@ -23,8 +23,7 @@ use Contao\System;
 use Psr\Log\LogLevel;
 
 /**
- * Listener for replace insert tags
- * to calculate the stardate.
+ * Listener for replace insert tags to calculate the stardate.
  *
  * Usage for actualy stardate:
  *     {{fragment::{{stardate::trekguide_f1}}}}
@@ -105,7 +104,7 @@ class InsertTagsListener
 
             if (false === $date) {
                 System::loadLanguageFile('tl_stardate_event');
-                $message = sprintf($GLOBALS['TL_LANG']['tl_stardate_event']['error_datetime'], $datetimeformat, $datetime);
+                $message = \sprintf($GLOBALS['TL_LANG']['tl_stardate_event']['error_datetime'], $datetimeformat, $datetime);
                 System::getContainer()
                     ->get('monolog.logger.contao')
                     ->log(

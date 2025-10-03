@@ -26,12 +26,7 @@ use Symfony\Component\HttpFoundation\Response;
 class StardateController extends AbstractContentElementController
 {
     /**
-     * Render the content element
-     * 
-     * @param FragmentTemplate $template
-     * @param ContentModel $model
-     * @param Request $request
-     * @return Response
+     * Render the content element.
      */
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
@@ -46,6 +41,7 @@ class StardateController extends AbstractContentElementController
 
             return $template->getResponse();
         }
+
         /** @phpstan-ignore property.notFound */
         switch ($model->calculateStardate) {
             case 'trekguide_f1':
